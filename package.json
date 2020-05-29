@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "start": "ts-node src/",
+    "start:dev": "ts-node-dev --respawn src/index.ts",
+    "build": "tsc"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.5",
@@ -22,8 +27,12 @@
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/csurf": "^1.9.36",
     "@types/express": "^4.17.6",
+    "@types/express-session": "^1.17.0",
     "@types/mongoose": "^5.7.21",
+    "@types/nodemailer": "^6.4.0",
     "@types/passport": "^1.0.3",
     "@types/passport-facebook": "^2.1.10",
     "@types/passport-google-oauth20": "^2.0.3",
