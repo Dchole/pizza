@@ -55,6 +55,7 @@ header nav ul li a {
 #showcase button {
   border: 2px solid "black";
   padding: 10px 20px;
+  cursor: pointer;
   font-family: "Roboto";
   font-weight: 600;
   margin-top: 15px;
@@ -76,7 +77,7 @@ header nav ul li a {
   text-align: center;
 }
 #gallery ul {
-  margin: 30px 50px;
+  margin: 30px 90px;
   list-style-type: none;
   height: 450px;
   display: flex;
@@ -92,20 +93,92 @@ header nav ul li a {
 }
 @media (max-width: 599px) {
   #gallery ul {
+    margin: 30px 0;
     flex-direction: column;
-    align-items: stretch;
+    justify-content: center;
     height: initial;
   }
   #gallery ul li {
     height: 400px;
     width: 100%;
-    margin: 10px auto;
+    margin: auto;
   }
   #gallery ul li img {
     height: 100%;
   }
 }
 
-body {
-  background-color: #f4f4f4;
+#info {
+  background-color: #454545;
+  color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#info #personal-info {
+  height: 50vh;
+  width: 500px;
+}
+#info #personal-info #avatar {
+  margin: 60px auto 30px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px dashed #d17b7b;
+}
+#info #personal-info p {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+}
+#info #contact-and-subscription {
+  height: 44vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#info #contact-and-subscription form {
+  text-align: center;
+  font-family: "Roboto Slab", serif;
+  font-size: 1.8rem;
+}
+#info #contact-and-subscription form input {
+  padding: 5px 10px;
+}
+#info #contact-and-subscription form input::placeholder {
+  font-family: "Roboto", sans-serif;
+}
+#info #contact-and-subscription form button {
+  border: 2px solid "black";
+  padding: 10px 20px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+#info #contact-and-subscription #social-contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 80vw;
+}
+#info #contact-and-subscription #social-contact ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+#info #contact-and-subscription #social-contact ul li {
+  margin: 0 10px;
+}
+#info #contact-and-subscription #social-contact ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+footer {
+  background-color: #343434;
+  color: white;
+  height: 50px;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

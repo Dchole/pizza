@@ -7,4 +7,5 @@
 @mixin button($border-color: "black") {
   border: 2px solid $border-color;
   padding: 10px 20px;
+  cursor: pointer;
 }
