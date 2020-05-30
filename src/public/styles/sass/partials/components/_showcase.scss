@@ -1,0 +1,34 @@
+#showcase {
+  height: 100vh;
+  color: white;
+  background: url("../../../../images/landing-page-cover.jpg") center
+    center/cover;
+  background-color: #434343dd;
+  background-blend-mode: overlay;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-family: "Lobster", sans-serif;
+    font-size: 4rem;
+
+    @media (max-width: 599px) {
+      font-size: 3rem;
+    }
+  }
+
+  p {
+    font-family: "Muli", sans-serif;
+    text-align: center;
+  }
+
+  button {
+    @include button;
+    font-family: "Roboto";
+    font-weight: 600;
+    margin-top: 15px;
+  }
+}

@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Muli&family=Roboto+Slab&family=Roboto:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  position: absolute;
+  width: 100%;
+  padding: 10px 40px;
+}
+header nav {
+  display: flex;
+  justify-content: space-between;
+}
+header nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+header nav ul li {
+  margin: 0 10px;
+}
+header nav ul li a {
+  font-family: "Muli", sans-serif;
+  color: white;
+  text-decoration: none;
+}
+
+#showcase {
+  height: 100vh;
+  color: white;
+  background: url("../../../../images/landing-page-cover.jpg") center center/cover;
+  background-color: #434343dd;
+  background-blend-mode: overlay;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#showcase h1 {
+  font-family: "Lobster", sans-serif;
+  font-size: 4rem;
+}
+@media (max-width: 599px) {
+  #showcase h1 {
+    font-size: 3rem;
+  }
+}
+#showcase p {
+  font-family: "Muli", sans-serif;
+  text-align: center;
+}
+#showcase button {
+  border: 2px solid "black";
+  padding: 10px 20px;
+  font-family: "Roboto";
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+#gallery {
+  height: 100vh;
+  width: 100%;
+  padding: 10px 0;
+}
+#gallery h2 {
+  font-family: "Lobster", sans-serif;
+  text-decoration: underline;
+  padding: 20px 0;
+  text-align: center;
+}
+#gallery p {
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+#gallery ul {
+  margin: 30px 50px;
+  list-style-type: none;
+  height: 450px;
+  display: flex;
+  justify-content: space-evenly;
+}
+#gallery ul li {
+  width: 350px;
+  overflow: hidden;
+}
+#gallery ul li img {
+  height: 100%;
+  transform: translate(-10%);
+}
+@media (max-width: 599px) {
+  #gallery ul {
+    flex-direction: column;
+    align-items: stretch;
+    height: initial;
+  }
+  #gallery ul li {
+    height: 400px;
+    width: 100%;
+    margin: 10px auto;
+  }
+  #gallery ul li img {
+    height: 100%;
+  }
+}
+
+body {
+  background-color: #f4f4f4;
+}

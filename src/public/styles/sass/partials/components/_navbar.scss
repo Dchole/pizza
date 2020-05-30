@@ -1,0 +1,26 @@
+header {
+  position: absolute;
+  width: 100%;
+  padding: 10px 40px;
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+
+    ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: space-evenly;
+
+      li {
+        margin: 0 10px;
+
+        a {
+          font-family: "Muli", sans-serif;
+          color: white;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

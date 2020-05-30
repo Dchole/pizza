@@ -1,0 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@mixin button($border-color: "black") {
+  border: 2px solid $border-color;
+  padding: 10px 20px;
+}

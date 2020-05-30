@@ -1,0 +1,51 @@
+#gallery {
+  height: 100vh;
+  width: 100%;
+  padding: 10px 0;
+
+  h2 {
+    font-family: "Lobster", sans-serif;
+    text-decoration: underline;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  p {
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+  }
+
+  ul {
+    margin: 30px 50px;
+    list-style-type: none;
+    height: 450px;
+    display: flex;
+    justify-content: space-evenly;
+
+    li {
+      width: 350px;
+      overflow: hidden;
+
+      img {
+        height: 100%;
+        transform: translate(-10%);
+      }
+    }
+
+    @media (max-width: 599px) {
+      flex-direction: column;
+      align-items: stretch;
+      height: initial;
+
+      li {
+        height: 400px;
+        width: 100%;
+        margin: 10px auto;
+
+        img {
+          height: 100%;
+        }
+      }
+    }
+  }
+}
