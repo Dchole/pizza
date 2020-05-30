@@ -19,6 +19,10 @@ header {
           font-family: "Muli", sans-serif;
           color: white;
           text-decoration: none;
+
+          @media (max-width: 599px) {
+            font-size: 0.8rem;
+          }
         }
       }
     }

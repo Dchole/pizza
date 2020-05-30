@@ -1,5 +1,4 @@
 #gallery {
-  height: 100vh;
   width: 100%;
   padding: 10px 0;
 
@@ -31,9 +30,13 @@
         transform: translate(-10%);
       }
     }
+  }
 
-    @media (max-width: 599px) {
-      margin: 30px 0;
+  @media (max-width: 599px) {
+    padding: 0;
+
+    ul {
+      margin: 30px 0 0;
       flex-direction: column;
       justify-content: center;
       height: initial;
@@ -41,7 +44,7 @@
       li {
         height: 400px;
         width: 100%;
-        margin: auto;
+        margin: 0;
 
         img {
           height: 100%;
