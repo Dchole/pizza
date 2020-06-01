@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import { Schema, model, Document } from "mongoose";
 
 export interface IRecipe extends Document {

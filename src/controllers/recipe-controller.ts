@@ -1,6 +1,6 @@
 import Recipe, { IRecipe } from "../model/recipe-model";
 
-interface ICreateUser {
+interface ICreateRecipeInput {
   recipe: IRecipe["recipe"];
   price: IRecipe["price"];
   description: IRecipe["description"];
@@ -12,7 +12,7 @@ async function CreateRecipe({
   price,
   description,
   soldTo
-}: ICreateUser): Promise<IRecipe> {
+}: ICreateRecipeInput): Promise<IRecipe> {
   return Recipe.create({
     recipe,
     price,
