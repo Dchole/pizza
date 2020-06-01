@@ -40,8 +40,7 @@ header nav .nav-wrapper {
 
 #gallery h2 {
   font-family: "Lobster", sans-serif;
-  text-decoration-line: underline;
-  text-decoration-style: double;
+  text-decoration: underline double;
   font-size: 3rem;
 }
 #gallery p {
@@ -162,4 +161,46 @@ footer {
   color: white;
   padding: 12px;
   font-family: "Roboto", sans-serif;
+}
+
+@media (max-width: 599px) {
+  #showcase h1 {
+    font-size: 4rem;
+  }
+
+  #gallery h2 {
+    font-size: 2rem;
+  }
+  #gallery p {
+    width: 80%;
+  }
+  #gallery ul {
+    flex-direction: column;
+  }
+  #gallery ul li {
+    width: 100%;
+  }
+
+  #register h2 {
+    font-size: 2rem;
+  }
+  #register p {
+    font-size: 1.2rem;
+  }
+
+  #info {
+    height: initial;
+  }
+  #info p {
+    width: 85%;
+  }
+  #info form h5 {
+    font-size: 1.4rem;
+  }
+  #info form .input-field {
+    width: 100%;
+  }
+  #info form .input-field .btn-floating {
+    padding-right: 35px;
+  }
 }
