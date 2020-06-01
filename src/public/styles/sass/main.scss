@@ -1,9 +1,203 @@
-@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Muli&family=Roboto+Slab&family=Roboto:wght@300&display=swap");
-@import "partials/reset";
-@import "partials/variables";
-@import "partials/components/navbar";
-@import "partials/components/showcase";
-@import "partials/components/gallery";
-@import "partials/components/info";
-@import "partials/components/footer";
-@import "partials/components/forms";
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Lobster+Two:wght@700&family=Muli&family=Roboto&family=Roboto+Slab:wght@500&display=swap");
+
+$header-font: "Lobster", sans-serif;
+$header-font-2: "Lobster Two", cursive;
+$sub-header-font: "Roboto Slab", serif;
+$caption-font: "Muli", sans-serif;
+$text-font: "Roboto", sans-serif;
+
+header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  nav {
+    background-color: transparent;
+    box-shadow: initial;
+    font-family: $text-font;
+
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-evenly;
+    }
+  }
+}
+
+#showcase {
+  background: url("../../images/landing-page-cover.jpg") center center/cover;
+  background-color: #444;
+  background-blend-mode: overlay;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+
+  h1 {
+    font-family: $header-font;
+    font-size: 6rem;
+    margin: 0;
+  }
+
+  p {
+    font-family: $caption-font;
+    font-size: 1.4rem;
+  }
+
+  .btn {
+    font-family: $text-font;
+  }
+}
+
+#gallery {
+  h2 {
+    font-family: $header-font;
+    text-decoration-line: underline;
+    text-decoration-style: double;
+    font-size: 3rem;
+  }
+
+  p {
+    width: 500px;
+    margin: auto;
+    font-size: 1.1rem;
+    font-family: $text-font;
+    margin-bottom: 30px;
+  }
+
+  ul {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+
+    li {
+      width: 400px;
+      margin: 0;
+
+      .card {
+        padding: 0;
+
+        .card-image {
+          .right-align {
+            background-image: linear-gradient(transparent, #454545);
+          }
+
+          .card-title {
+            font-family: $header-font-2;
+            font-weight: 500;
+            padding: 10px 20px;
+            width: 100%;
+          }
+        }
+
+        p {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+#register {
+  height: 50vh;
+  background: url("../../images/cover-2.jpg") no-repeat center center/cover;
+  background-color: #444;
+  background-blend-mode: overlay;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    font-family: $header-font;
+    margin: 0;
+  }
+
+  p {
+    margin: 0 0 20px;
+    font-family: $caption-font;
+    font-size: 1.4rem;
+  }
+}
+
+#info {
+  height: 93vh;
+  background-color: #454545;
+  color: white;
+  padding: 50px;
+
+  #avatar {
+    width: 120px;
+    height: 120px;
+    border: 2px dashed wheat;
+    border-radius: 50%;
+    margin: auto;
+  }
+
+  h4 {
+    font-family: $sub-header-font;
+    margin-bottom: 0;
+  }
+
+  p {
+    width: 450px;
+    margin: 20px auto 100px;
+  }
+
+  form {
+    margin: 30px auto 100px;
+
+    h5 {
+      margin-bottom: 25px;
+      font-family: $sub-header-font;
+    }
+
+    .input-field {
+      width: 400px;
+      margin: auto;
+      display: flex;
+
+      input {
+        color: white;
+      }
+
+      .btn-floating {
+        box-shadow: none;
+        width: 60px;
+        padding-right: 18px;
+      }
+    }
+  }
+
+  #social-contact {
+    display: flex;
+    justify-content: space-between;
+
+    h6 {
+      margin-bottom: 10px;
+      font-family: $sub-header-font;
+    }
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+
+      li {
+        margin: 0 10px;
+
+        i {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  background-color: darken($color: #454545, $amount: 10%);
+  color: white;
+  padding: 12px;
+  font-family: $text-font;
+}

@@ -1,31 +1,45 @@
 <section id="info">
     <div id="personal-info">
         <div id="avatar"></div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque vitae assumenda facilis asperiores alias
+        <h4 class="center-align">BIO</h4>
+        <p class="center-align">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque vitae assumenda facilis
+            asperiores alias
             accusamus commodi. Voluptate deleniti nihil pariatur eaque nulla omnis. Quaerat, sed sapiente animi
             quibusdam consectetur suscipit!</p>
     </div>
     <div id="contact-and-subscription">
         <div id="news-letter">
-            <form action="/index" method="post">
-                <label for="email">Subscribe to our Newsletter</label>
-                <br />
-                <input type="email" id="email" placeholder="Email" name="email">
-                <button type="submit">Submit</button>
+            <form action="/" method="POST">
+                <h5 class="center-align">Subscribe to our newsletter</h5>
+                <div class="input-field">
+                    <input id="email" name="email" type="email" />
+                    <label for="email">Email</label>
+                    <a class="waves-effect waves-light btn-floating btn-large transparent">
+                        <i class="small material-icons">send</i>
+                    </a>
+                </div>
             </form>
         </div>
-        <div id="social-contact">
+    </div>
+    <div id="social-contact">
+        <div id="contact">
+            <h6 class="center-align">Contact Us</h6>
             <ul class="links" id="contact">
-                <li><a href="">Tel</a></li>
-                <li><a href="">Mes</a></li>
-                <li><a href="">Email</a></li>
-            </ul>
-            <ul class="links" id="social-media">
-                <li><a href="">F</a></li>
-                <li><a href="">Y</a></li>
-                <li><a href="">T</a></li>
-                <li><a href="">I</a></li>
+                <li><a href=""><i class="material-icons green-text">call</i></a></li>
+                <li><a href=""><i class="fab fa-whatsapp green-text"></i></a></li>
+                <li><a href=""><i class="fab fa-facebook-messenger"></i></a></li>
+                <li><a href=""><i class="material-icons white-text">email</i></a></li>
             </ul>
         </div>
+        <div id="social-media">
+            <h6 class="center-align">Follow Us</h6>
+            <ul class="links" id="social-media">
+                <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href=""><i class="fab fa-pinterest red-text"></i></a></li>
+                <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                <li><a href=""><i class="fab fa-instagram white-text"></i></a></li>
+            </ul>
+        </div>
+    </div>
     </div>
 </section>

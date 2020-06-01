@@ -1,301 +1,165 @@
-@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Muli&family=Roboto+Slab&family=Roboto:wght@300&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Lobster+Two:wght@700&family=Muli&family=Roboto&family=Roboto+Slab:wght@500&display=swap");
 header {
   position: absolute;
+  top: 0;
   width: 100%;
-  padding: 10px 0;
 }
 header nav {
-  width: 80%;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: unset;
-  flex-direction: row;
+  background-color: transparent;
+  box-shadow: initial;
+  font-family: "Roboto", sans-serif;
 }
-header nav ul {
-  list-style-type: none;
+header nav .nav-wrapper {
   display: flex;
   justify-content: space-evenly;
-  align-items: unset;
-  flex-direction: row;
-}
-header nav ul li {
-  margin: 0 10px;
-}
-header nav ul li a {
-  font-family: "Roboto", sans-serif;
-  color: white;
-  text-decoration: none;
-}
-@media (max-width: 599px) {
-  header nav ul li a {
-    font-size: 0.8rem;
-  }
-}
-header nav button {
-  border: 1px solid white;
-  background-color: transparent;
-  padding: 5px 10px;
-  color: white;
-  font-family: "Roboto", sans-serif;
-  cursor: pointer;
-  transition: ease-in 100ms;
-}
-header nav button:hover {
-  background-color: white;
-  color: black;
 }
 
 #showcase {
-  height: 100vh;
-  color: white;
-  background: url("../../../../images/landing-page-cover.jpg") center center/cover;
-  background-color: #434343dd;
+  background: url("../../images/landing-page-cover.jpg") center center/cover;
+  background-color: #444;
   background-blend-mode: overlay;
+  height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
 }
 #showcase h1 {
   font-family: "Lobster", sans-serif;
-  font-size: 4rem;
-}
-@media (max-width: 599px) {
-  #showcase h1 {
-    font-size: 3rem;
-  }
+  font-size: 6rem;
+  margin: 0;
 }
 #showcase p {
   font-family: "Muli", sans-serif;
-  text-align: center;
+  font-size: 1.4rem;
 }
-#showcase button {
-  border: 2px solid white;
-  background-color: transparent;
-  padding: 10px 20px;
-  color: black;
+#showcase .btn {
   font-family: "Roboto", sans-serif;
-  cursor: pointer;
-  font-weight: 600;
-  color: white;
-  margin-top: 15px;
-  transition: ease-in 200ms;
-}
-#showcase button:hover {
-  background-color: white;
-  color: black;
 }
 
-#gallery {
-  width: 100%;
-  padding: 10px 0;
-}
 #gallery h2 {
   font-family: "Lobster", sans-serif;
-  text-decoration: underline;
-  padding: 20px 0;
-  text-align: center;
+  text-decoration-line: underline;
+  text-decoration-style: double;
+  font-size: 3rem;
 }
 #gallery p {
+  width: 500px;
+  margin: auto;
+  font-size: 1.1rem;
   font-family: "Roboto", sans-serif;
-  text-align: center;
+  margin-bottom: 30px;
 }
 #gallery ul {
-  margin: 30px 90px;
-  list-style-type: none;
-  height: 450px;
+  margin: auto;
   display: flex;
-  justify-content: space-evenly;
-  align-items: unset;
-  flex-direction: row;
+  justify-content: center;
 }
 #gallery ul li {
-  width: 350px;
-  overflow: hidden;
+  width: 400px;
+  margin: 0;
 }
-#gallery ul li img {
-  height: 100%;
-  transform: translate(-10%);
+#gallery ul li .card {
+  padding: 0;
 }
-@media (max-width: 599px) {
-  #gallery {
-    padding: 0;
-  }
-  #gallery ul {
-    margin: 30px 0 0;
-    display: flex;
-    justify-content: center;
-    align-items: unset;
-    flex-direction: column;
-    height: initial;
-  }
-  #gallery ul li {
-    height: 400px;
-    width: 100%;
-    margin: 0;
-  }
-  #gallery ul li img {
-    height: 100%;
-  }
+#gallery ul li .card .card-image .right-align {
+  background-image: linear-gradient(transparent, #454545);
+}
+#gallery ul li .card .card-image .card-title {
+  font-family: "Lobster Two", cursive;
+  font-weight: 500;
+  padding: 10px 20px;
+  width: 100%;
+}
+#gallery ul li .card p {
+  width: 100%;
+}
+
+#register {
+  height: 50vh;
+  background: url("../../images/cover-2.jpg") no-repeat center center/cover;
+  background-color: #444;
+  background-blend-mode: overlay;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#register h2 {
+  font-family: "Lobster", sans-serif;
+  margin: 0;
+}
+#register p {
+  margin: 0 0 20px;
+  font-family: "Muli", sans-serif;
+  font-size: 1.4rem;
 }
 
 #info {
+  height: 93vh;
   background-color: #454545;
   color: white;
-  height: 75vh;
-  display: flex;
-  justify-content: unset;
-  align-items: center;
-  flex-direction: column;
+  padding: 50px;
 }
-#info #personal-info {
-  height: 50vh;
-  width: 500px;
-}
-@media (max-width: 599px) {
-  #info #personal-info {
-    width: 80%;
-    margin-bottom: 50px;
-  }
-}
-#info #personal-info #avatar {
-  margin: 60px auto 30px;
+#info #avatar {
   width: 120px;
   height: 120px;
+  border: 2px dashed wheat;
   border-radius: 50%;
-  border: 2px dashed #d17b7b;
+  margin: auto;
 }
-#info #personal-info p {
-  text-align: center;
-  font-family: "Roboto", sans-serif;
-}
-#info #contact-and-subscription {
-  height: 20vh;
-  display: flex;
-  justify-content: space-between;
-  align-items: unset;
-  flex-direction: column;
-}
-#info #contact-and-subscription form {
-  text-align: center;
+#info h4 {
   font-family: "Roboto Slab", serif;
-  font-size: 1.8rem;
+  margin-bottom: 0;
 }
-#info #contact-and-subscription form input {
-  padding: 5px 10px;
+#info p {
+  width: 450px;
+  margin: 20px auto 100px;
 }
-#info #contact-and-subscription form input::placeholder {
-  font-family: "Roboto", sans-serif;
+#info form {
+  margin: 30px auto 100px;
 }
-#info #contact-and-subscription form button {
-  border: 1px solid black;
-  background-color: white;
-  padding: 6px 10px;
-  color: black;
-  font-family: "Roboto", sans-serif;
-  cursor: pointer;
+#info form h5 {
+  margin-bottom: 25px;
+  font-family: "Roboto Slab", serif;
 }
-@media screen {
-  #info #contact-and-subscription form {
-    font-size: 1.4rem;
-  }
-  #info #contact-and-subscription form input {
-    margin: 5px 0 15px;
-  }
+#info form .input-field {
+  width: 400px;
+  margin: auto;
+  display: flex;
 }
-#info #contact-and-subscription #social-contact {
+#info form .input-field input {
+  color: white;
+}
+#info form .input-field .btn-floating {
+  box-shadow: none;
+  width: 60px;
+  padding-right: 18px;
+}
+#info #social-contact {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  flex-direction: row;
-  margin: 0 auto;
-  width: 80vw;
 }
-@media (max-width: 599px) {
-  #info #contact-and-subscription #social-contact {
-    width: 100vw;
-    margin-bottom: 20px;
-  }
+#info #social-contact h6 {
+  margin-bottom: 10px;
+  font-family: "Roboto Slab", serif;
 }
-#info #contact-and-subscription #social-contact ul {
-  list-style-type: none;
+#info #social-contact ul {
   display: flex;
-  justify-content: space-evenly;
-  align-items: unset;
-  flex-direction: row;
+  justify-content: space-between;
 }
-#info #contact-and-subscription #social-contact ul li {
+#info #social-contact ul li {
   margin: 0 10px;
 }
-#info #contact-and-subscription #social-contact ul li a {
-  font-family: "Roboto", sans-serif;
-  color: white;
-  text-decoration: none;
+#info #social-contact ul li i {
+  font-size: 24px;
 }
 
 footer {
-  background-color: #343434;
+  background-color: #2c2c2c;
   color: white;
-  height: 50px;
+  padding: 12px;
   font-family: "Roboto", sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-}
-
-#form {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  margin: 50px auto;
-  height: 100vh;
-}
-#form h1 {
-  margin-bottom: 20px;
-}
-#form fieldset {
-  width: 50vw;
-  padding: 40px 10px;
-  border: none;
-  border-radius: 5px;
-}
-@media (max-width: 599px) {
-  #form fieldset {
-    width: 100%;
-  }
-}
-#form fieldset form div {
-  display: flex;
-  justify-content: unset;
-  align-items: unset;
-  flex-direction: column;
-  padding: 0 10px;
-  width: 90%;
-  margin-bottom: 10px;
-  margin: auto;
-}
-#form fieldset form div input {
-  padding: 10px;
-}
-#form fieldset form button {
-  border: 0 solid #06f;
-  background-color: #06f;
-  padding: 10px 20px;
-  color: white;
-  font-family: "Roboto", sans-serif;
-  cursor: pointer;
-  width: inherit;
-  border-radius: 5px;
-  display: flex;
-  margin: 10px;
-  flex-grow: 1;
 }

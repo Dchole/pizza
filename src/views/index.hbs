@@ -3,17 +3,80 @@
     <section id="showcase">
         <h1>Delicious <span role="img" aria-label="emoji">😋</span></h1>
         <p>Get your pizza now. No waiting. Fast and Delicious</p>
-        <a href="/register"><button>Make an Order</button></a>
+        <a href="/register" class="waves-effect waves-dark btn white black-text pulse">Make an order</a>
     </section>
-    <section id="gallery">
+    <section class="center-align" id="gallery">
         <h2>Order from our store</h2>
         <p>Our store has all sort of pizza recipes. All recipes are customizable. Sign and order a recipe of your
             preference.</p>
-        <ul>
-            <li><img src="/images/gallery-thumbnail-1.jpg" alt="" /></li>
-            <li><img src="/images/gallery-thumbnail-2.jpg" alt="" /></li>
-            <li><img src="/images/gallery-thumbnail-3.jpg" alt="" /></li>
-        </ul>
+        <div class="row">
+            <ul class="col s12">
+                <li class="col s4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="/images/gallery-thumbnail-1.jpg" alt="" />
+                            <span class="card-title right-align">$30</span>
+                            <span class="card-title left-align">Recipe</span>
+                        </div>
+                        <div class="card-content">
+                            <p>I am a very simple card. I am good at containing small bits of information.
+                                I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                        <div class="card-action">
+                            <a class="waves-effect waves-light btn blue">
+                                <i class="material-icons left">shopping_cart</i>
+                                Buy
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="col s4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="/images/gallery-thumbnail-2.jpg" alt="" />
+                            <div id="title">
+                                <span class="card-title right-align">$30</span>
+                                <span class="card-title left-align">Recipe</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <p>I am a very simple card. I am good at containing small bits of information.
+                                I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                        <div class="card-action">
+                            <a class="waves-effect waves-light btn blue">
+                                <i class="material-icons left">shopping_cart</i>
+                                Buy
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="col s4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="/images/gallery-thumbnail-3.jpg" alt="" />
+                            <span class="card-title right-align">$30</span>
+                            <span class="card-title left-align">Recipe</span>
+                        </div>
+                        <div class="card-content">
+                            <p>I am a very simple card. I am good at containing small bits of information.
+                                I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                        <div class="card-action">
+                            <a class="waves-effect waves-light btn blue">
+                                <i class="material-icons left">shopping_cart</i>
+                                Buy
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section id="register">
+        <h2 class="center-align">La pizza è calda e pronta per essere servita</h2>
+        <p class="center-align">Sign up and make an order now</p>
+        <a class="waves-effect waves-dark btn white black-text">Sign up</a>
     </section>
     {{> info-and-contact}}
     {{> footer}}
