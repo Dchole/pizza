@@ -5,14 +5,10 @@
     center/cover;
   background-color: #434343dd;
   background-blend-mode: overlay;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include display-flex(center, center, column);
 
   h1 {
-    font-family: "Lobster", sans-serif;
+    font-family: $header-font;
     font-size: 4rem;
 
     @media (max-width: 599px) {
@@ -21,14 +17,20 @@
   }
 
   p {
-    font-family: "Muli", sans-serif;
+    font-family: $caption-font;
     text-align: center;
   }
 
   button {
-    @include button;
-    font-family: "Roboto";
+    @include button(10px 20px, transparent, $border-color: white);
     font-weight: 600;
+    color: white;
     margin-top: 15px;
+    transition: ease-in 200ms;
+
+    &:hover {
+      background-color: white;
+      color: black;
+    }
   }
 }

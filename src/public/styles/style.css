@@ -8,22 +8,28 @@
 header {
   position: absolute;
   width: 100%;
-  padding: 10px 40px;
+  padding: 10px 0;
 }
 header nav {
+  width: 80%;
+  margin: auto;
   display: flex;
   justify-content: space-between;
+  align-items: unset;
+  flex-direction: row;
 }
 header nav ul {
   list-style-type: none;
   display: flex;
   justify-content: space-evenly;
+  align-items: unset;
+  flex-direction: row;
 }
 header nav ul li {
   margin: 0 10px;
 }
 header nav ul li a {
-  font-family: "Muli", sans-serif;
+  font-family: "Roboto", sans-serif;
   color: white;
   text-decoration: none;
 }
@@ -31,6 +37,19 @@ header nav ul li a {
   header nav ul li a {
     font-size: 0.8rem;
   }
+}
+header nav button {
+  border: 1px solid white;
+  background-color: transparent;
+  padding: 5px 10px;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+  transition: ease-in 100ms;
+}
+header nav button:hover {
+  background-color: white;
+  color: black;
 }
 
 #showcase {
@@ -40,9 +59,9 @@ header nav ul li a {
   background-color: #434343dd;
   background-blend-mode: overlay;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 #showcase h1 {
   font-family: "Lobster", sans-serif;
@@ -58,12 +77,20 @@ header nav ul li a {
   text-align: center;
 }
 #showcase button {
-  border: 2px solid "black";
+  border: 2px solid white;
+  background-color: transparent;
   padding: 10px 20px;
+  color: black;
+  font-family: "Roboto", sans-serif;
   cursor: pointer;
-  font-family: "Roboto";
   font-weight: 600;
+  color: white;
   margin-top: 15px;
+  transition: ease-in 200ms;
+}
+#showcase button:hover {
+  background-color: white;
+  color: black;
 }
 
 #gallery {
@@ -86,6 +113,8 @@ header nav ul li a {
   height: 450px;
   display: flex;
   justify-content: space-evenly;
+  align-items: unset;
+  flex-direction: row;
 }
 #gallery ul li {
   width: 350px;
@@ -101,8 +130,10 @@ header nav ul li a {
   }
   #gallery ul {
     margin: 30px 0 0;
-    flex-direction: column;
+    display: flex;
     justify-content: center;
+    align-items: unset;
+    flex-direction: column;
     height: initial;
   }
   #gallery ul li {
@@ -118,10 +149,11 @@ header nav ul li a {
 #info {
   background-color: #454545;
   color: white;
-  height: 100vh;
+  height: 75vh;
   display: flex;
-  flex-direction: column;
+  justify-content: unset;
   align-items: center;
+  flex-direction: column;
 }
 #info #personal-info {
   height: 50vh;
@@ -145,10 +177,11 @@ header nav ul li a {
   font-family: "Roboto", sans-serif;
 }
 #info #contact-and-subscription {
-  height: 44vh;
+  height: 20vh;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
+  align-items: unset;
+  flex-direction: column;
 }
 #info #contact-and-subscription form {
   text-align: center;
@@ -162,15 +195,26 @@ header nav ul li a {
   font-family: "Roboto", sans-serif;
 }
 #info #contact-and-subscription form button {
-  border: 2px solid "black";
-  padding: 10px 20px;
+  border: 1px solid black;
+  background-color: white;
+  padding: 6px 10px;
+  color: black;
+  font-family: "Roboto", sans-serif;
   cursor: pointer;
-  padding: 5px 10px;
+}
+@media screen {
+  #info #contact-and-subscription form {
+    font-size: 1.4rem;
+  }
+  #info #contact-and-subscription form input {
+    margin: 5px 0 15px;
+  }
 }
 #info #contact-and-subscription #social-contact {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  flex-direction: row;
   margin: 0 auto;
   width: 80vw;
 }
@@ -184,11 +228,14 @@ header nav ul li a {
   list-style-type: none;
   display: flex;
   justify-content: space-evenly;
+  align-items: unset;
+  flex-direction: row;
 }
 #info #contact-and-subscription #social-contact ul li {
   margin: 0 10px;
 }
 #info #contact-and-subscription #social-contact ul li a {
+  font-family: "Roboto", sans-serif;
   color: white;
   text-decoration: none;
 }
@@ -199,6 +246,56 @@ footer {
   height: 50px;
   font-family: "Roboto", sans-serif;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+#form {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  margin: 50px auto;
+  height: 100vh;
+}
+#form h1 {
+  margin-bottom: 20px;
+}
+#form fieldset {
+  width: 50vw;
+  padding: 40px 10px;
+  border: none;
+  border-radius: 5px;
+}
+@media (max-width: 599px) {
+  #form fieldset {
+    width: 100%;
+  }
+}
+#form fieldset form div {
+  display: flex;
+  justify-content: unset;
+  align-items: unset;
+  flex-direction: column;
+  padding: 0 10px;
+  width: 90%;
+  margin-bottom: 10px;
+  margin: auto;
+}
+#form fieldset form div input {
+  padding: 10px;
+}
+#form fieldset form button {
+  border: 0 solid #06f;
+  background-color: #06f;
+  padding: 10px 20px;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+  width: inherit;
+  border-radius: 5px;
+  display: flex;
+  margin: 10px;
+  flex-grow: 1;
 }

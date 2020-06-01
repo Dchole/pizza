@@ -1,0 +1,48 @@
+import { Schema, model, Document } from "mongoose";
+
+export interface IUser extends Document {
+  username: string;
+  email: string;
+  password: string;
+  confirmed: boolean;
+  cart: string[] | never[];
+  transactions: string[] | never[];
+}
+
+const UserSchema: Schema = new Schema(
+  {
+    username: {
+      type: String,
+      required: true
+    },
+    email: {
+      type: String,
+      min: 3,
+      required: true,
+      unique: true
+    },
+    password: {
+      type: String,
+      min: 8,
+      required: true
+    },
+    confirmed: {
+      type: Boolean,
+      default: false
+    },
+    cart: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Item"
+      }
+    ],
+    transactions: [
+      {
+        type: Schema.Types.ObjectId
+      }
+    ]
+  },
+  { timestamps: true }
+);
+
+export default model<IUser>("User", UserSchema);

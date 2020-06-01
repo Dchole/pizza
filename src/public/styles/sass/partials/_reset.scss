@@ -4,8 +4,30 @@
   box-sizing: border-box;
 }
 
-@mixin button($border-color: "black") {
-  border: 2px solid $border-color;
-  padding: 10px 20px;
+@mixin button(
+  $btn-padding,
+  $btn-bg: white,
+  $border-width: 2px,
+  $border-color: black,
+  $btn-color: black
+) {
+  border: $border-width solid $border-color;
+  background-color: $btn-bg;
+  padding: $btn-padding;
+  color: $btn-color;
+  font-family: $para-btn-font;
   cursor: pointer;
+}
+
+@mixin link {
+  font-family: $para-btn-font;
+  color: white;
+  text-decoration: none;
+}
+
+@mixin display-flex($justify, $align, $direction) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
 }

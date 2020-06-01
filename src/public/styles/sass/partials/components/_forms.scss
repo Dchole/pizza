@@ -1,0 +1,42 @@
+#form {
+  @include display-flex(flex-start, center, column);
+  margin: 50px auto;
+  height: 100vh;
+
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  fieldset {
+    width: 50vw;
+    padding: 40px 10px;
+    border: none;
+    border-radius: 5px;
+
+    @media (max-width: 599px) {
+      width: 100%;
+    }
+
+    form {
+      div {
+        @include display-flex(unset, unset, column);
+        padding: 0 10px;
+        width: 90%;
+        margin-bottom: 10px;
+        margin: auto;
+
+        input {
+          padding: 10px;
+        }
+      }
+      button {
+        @include button(10px 20px, #06f, 0, #06f, white);
+        width: inherit;
+        border-radius: 5px;
+        display: flex;
+        margin: 10px;
+        flex-grow: 1;
+      }
+    }
+  }
+}

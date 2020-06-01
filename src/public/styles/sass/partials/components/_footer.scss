@@ -2,8 +2,6 @@ footer {
   background-color: #343434;
   color: white;
   height: 50px;
-  font-family: "Roboto", sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-family: $para-btn-font;
+  @include display-flex(center, center, row);
 }

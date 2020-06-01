@@ -1,10 +1,8 @@
 #info {
   background-color: #454545;
   color: white;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: 75vh;
+  @include display-flex(unset, center, column);
 
   #personal-info {
     height: 50vh;
@@ -25,39 +23,42 @@
 
     p {
       text-align: center;
-      font-family: "Roboto", sans-serif;
+      font-family: $para-btn-font;
     }
   }
 
   #contact-and-subscription {
-    height: 44vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    height: 20vh;
+    @include display-flex(space-between, unset, column);
 
     form {
       text-align: center;
-      font-family: "Roboto Slab", serif;
+      font-family: $sub-header-font;
       font-size: 1.8rem;
 
       input {
         padding: 5px 10px;
 
         &::placeholder {
-          font-family: "Roboto", sans-serif;
+          font-family: $para-btn-font;
         }
       }
 
       button {
-        @include button;
-        padding: 5px 10px;
+        @include button(6px 10px, $border-width: 1px);
+      }
+
+      @media screen {
+        font-size: 1.4rem;
+
+        input {
+          margin: 5px 0 15px;
+        }
       }
     }
 
     #social-contact {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
+      @include display-flex(space-between, flex-end, row);
       margin: 0 auto;
       width: 80vw;
 
@@ -68,15 +69,13 @@
 
       ul {
         list-style-type: none;
-        display: flex;
-        justify-content: space-evenly;
+        @include display-flex(space-evenly, unset, row);
 
         li {
           margin: 0 10px;
 
           a {
-            color: white;
-            text-decoration: none;
+            @include link;
           }
         }
       }

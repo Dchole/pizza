@@ -1,14 +1,19 @@
 import { config } from "dotenv";
+import { connect } from "mongoose";
 import path from "path";
-import express from "express";
+import express, { Application } from "express";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import session from "express-session";
 import hbs from "express-handlebars";
+import flash from "express-flash";
+
 import indexRoute from "./routes/index";
+import registerRoute from "./routes/register";
+import loginRoute from "./routes/login";
 
 config();
-const app = express();
+const app: Application = express();
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
@@ -34,8 +39,19 @@ app.use(
     saveUninitialized: false
   })
 );
+app.use(flash());
+
+connect(process.env.DB!, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true
+})
+  .then(() => console.log("Connected to DB"))
+  .catch((err: any) => console.log(err));
 
 app.use("/", indexRoute);
+app.use("/register", registerRoute);
+app.use("/login", loginRoute);
 
 app.listen(process.env.PORT, () =>
   console.log(`App running on port ${process.env.PORT}`)
