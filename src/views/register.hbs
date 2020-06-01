@@ -1,22 +1,27 @@
 <main id="form">
     <h1>Sign Up</h1>
     <fieldset title="Sign Up">
+        {{# if success }}
+        <div class="success">
+            <h6>Confirmation link has been sent to your email, please confirm before login</h6>
+        </div>
+        {{/ if}}
         <form action="/register" method="POST">
             <div>
                 <label for="username">Username</label>
-                <input type="text" name="username" id="username" autofocus required>
+                <input type="text" name="username" id="username" autofocus required />
             </div>
             <div>
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" autofocus required>
+                <input type="email" name="email" id="email" autofocus required />
             </div>
             <div>
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password" autofocus required>
+                <input type="password" name="password" id="password" autofocus required />
             </div>
             <div>
                 <label for="confirm">Confirm Password</label>
-                <input type="password" name="confirm" id="confirm" autofocus required>
+                <input type="password" name="confirm" id="confirm" autofocus required />
             </div>
             <button type="submit">Submit</button>
             <a href="/login">Already have an account? Login</a>

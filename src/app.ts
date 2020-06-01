@@ -11,6 +11,7 @@ import flash from "express-flash";
 import indexRoute from "./routes/index";
 import registerRoute from "./routes/register";
 import loginRoute from "./routes/login";
+import confirmRoute from "./routes/confirm";
 
 config();
 const app: Application = express();
@@ -34,24 +35,26 @@ app.use(helmet());
 app.use(cookieParser());
 app.use(
   session({
-    secret: process.env.SESSION_SECRET!,
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false
   })
 );
 app.use(flash());
 
-connect(process.env.DB!, {
+connect(process.env.DB, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useCreateIndex: true
+  useCreateIndex: true,
+  useFindAndModify: false
 })
   .then(() => console.log("Connected to DB"))
-  .catch((err: any) => console.log(err));
+  .catch((err: Error) => console.log(err));
 
 app.use("/", indexRoute);
 app.use("/register", registerRoute);
 app.use("/login", loginRoute);
+app.use("/confirm", confirmRoute);
 
 app.listen(process.env.PORT, () =>
   console.log(`App running on port ${process.env.PORT}`)
