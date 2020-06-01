@@ -1,10 +1,10 @@
 import { Router, Request, Response } from "express";
 import { genSalt, hash } from "bcryptjs";
 import { check, validationResult } from "express-validator";
-import User from "../model/user-model";
-import nodemailer from "nodemailer";
-import userController from "../controllers/user-controller";
+import { createTransport } from "nodemailer";
 import { sign } from "jsonwebtoken";
+import User from "../model/user-model";
+import userController from "../controllers/user-controller";
 
 const router = Router();
 
@@ -53,7 +53,7 @@ router.post(
         password: hashedPassword
       });
 
-      const transporter = nodemailer.createTransport({
+      const transporter = createTransport({
         host: "smtp.gmail.com",
         port: 465,
         secure: true,
