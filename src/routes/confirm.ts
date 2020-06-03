@@ -1,5 +1,6 @@
 import { Router, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
+
 import User from "../model/user-model";
 
 const router = Router();
@@ -15,11 +16,15 @@ router.get("/:token", async (req: Request, res: Response) => {
       process.env.TOKEN_SECRET
     ) as IVerify;
     await User.findByIdAndUpdate(userId, { confirmed: true });
-    req.session.success = true;
+
+    req.flash(
+      "success_msg",
+      "Your email has been confirmed successfully. You can now login"
+    );
 
     res.redirect("/login");
   } catch (err) {
-    req.session.errors = err.message;
+    req.flash("error_msg", "Something went wrong, Please try again");
     res.redirect("/login");
   }
 });

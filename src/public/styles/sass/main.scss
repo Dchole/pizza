@@ -189,6 +189,10 @@ header {
         i {
           font-size: 24px;
         }
+
+        img {
+          width: 1.4rem;
+        }
       }
     }
   }
@@ -254,6 +258,30 @@ footer {
         .btn-floating {
           padding-right: 35px;
         }
+      }
+    }
+  }
+}
+
+#register-form,
+#login-form {
+  h1 {
+    font-family: $header-font-2;
+  }
+
+  fieldset {
+    border: none;
+
+    .card-panel {
+      padding: 10px;
+    }
+
+    form {
+      width: 90%;
+      margin: 40px auto;
+
+      .right {
+        padding-top: 10px;
       }
     }
   }

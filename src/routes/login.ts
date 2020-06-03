@@ -1,15 +1,13 @@
-import { Router, Request, Response } from "express";
+import { Router, Request, Response, NextFunction } from "express";
 import { check, validationResult } from "express-validator";
-import User, { IUser } from "../model/user-model";
+import { IUser } from "../model/user-model";
+import { checkNotAuthenticated } from "./middleware/auth";
+import passport from "passport";
 
 const router = Router();
 
-router.get("/", (req: Request, res: Response) => {
-  res.render("login", {
-    title: "Login",
-    errors: req.session.errors,
-    success: req.session.success
-  });
+router.get("/", (_, res: Response) => {
+  res.render("login", { title: "Login" });
 });
 
 interface ICustomReq extends Request {
@@ -19,30 +17,30 @@ interface ICustomReq extends Request {
 router.post(
   "/",
   [
-    check("email").exists().isEmail(),
-    check("password").exists().isLength({ min: 8 })
+    check("email", "Invalid Email Address").exists().isEmail(),
+    check("password", "Password is too short").exists().isLength({ min: 8 })
   ],
-  async (req: ICustomReq, res: Response) => {
+  checkNotAuthenticated,
+  async (req: ICustomReq, res: Response, next: NextFunction) => {
     try {
-      const errors = validationResult(req);
-      if (!errors.isEmpty()) {
-        req.session.errors = errors;
-        return res.redirect("/login");
-      }
+      const result = validationResult(req);
+      const errors = result.array().map(error => error.msg);
 
-      const user = await User.findOne({ email: req.body.email });
-      if (!user) {
-        req.session.error = { message: "User does not exists" };
-        res.redirect("/login");
-      } else if (!user.confirmed) {
-        req.session.error = {
-          message: "Please confirm your email before login"
-        };
-        res.redirect("/login");
-      } else res.redirect("/home");
+      if (!result.isEmpty()) {
+        return res.render("login", { errors });
+      }
+      console.log("login", req.session.path);
+
+      const successRedirect = req.session.path ? req.session.path : "/home";
+
+      passport.authenticate("local", {
+        successRedirect,
+        failureRedirect: "/login",
+        failureFlash: true
+      })(req, res, next);
     } catch (err) {
+      req.flash("error_msg", "Something went wrong! Please try again");
       res.redirect("/login");
-      console.log(err);
     }
   }
 );

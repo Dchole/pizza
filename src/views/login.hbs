@@ -1,6 +1,7 @@
-<main id="form">
-    <h1>Login</h1>
-    <fieldset title="Login">
+<main class="container" id="login-form">
+    <h1 class="center-align">Login</h1>
+    <fieldset class="card" title="Login">
+        {{> messages }}
         <form action="/login" method="POST">
             <div>
                 <label for="email">Email</label>
@@ -10,8 +11,8 @@
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password" autofocus required>
             </div>
-            <button type="submit">Submit</button>
-            <a href="/register">Don't have an account? Sign Up</a>
+            <button class="btn blue white-text" type="submit">Submit</button>
+            <a href="/register" class="right">Don't have an account? Sign Up</a>
         </form>
     </fieldset>
 </main>

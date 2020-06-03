@@ -19,17 +19,12 @@ router.post(
   async (req: ICustomReq, res: Response) => {
     try {
       const errors = validationResult(req);
-      if (!errors.isEmpty()) {
-        req.session.success = false;
-      } else {
+      if (errors.isEmpty())
         await newsletterController.CreateNewsLetter({ email: req.body.email });
-        req.session.success = true;
-      }
 
       res.redirect("/");
     } catch (err) {
       console.log(err);
-      req.session.success = false;
     }
   }
 );

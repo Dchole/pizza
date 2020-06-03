@@ -5,18 +5,12 @@ import { createTransport } from "nodemailer";
 import { sign } from "jsonwebtoken";
 import User, { IUser } from "../model/user-model";
 import userController from "../controllers/user-controller";
+import { checkNotAuthenticated } from "./middleware/auth";
 
 const router = Router();
 
-router.get("/", (req: Request, res: Response) => {
-  res.render("register", {
-    title: "Sign Up",
-    success: req.session.success,
-    errors: req.session.errors
-  });
-
-  req.session.errors = null;
-  req.session.success = false;
+router.get("/", (_, res: Response) => {
+  res.render("register", { title: "Sign Up" });
 });
 
 interface ICustomReq extends Request {
@@ -26,27 +20,27 @@ interface ICustomReq extends Request {
 router.post(
   "/",
   [
-    check("username").exists().isLength({ min: 3 }),
-    check("email").exists().isEmail().normalizeEmail(),
-    check("password").exists().isLength({ min: 8 }),
-    check("confirm").exists().equals("password")
+    check("username", "Username is too short").exists().isLength({ min: 3 }),
+    check("email", "Invalid Email Address").exists().isEmail().normalizeEmail(),
+    check("password", "Password is too weak").exists().isLength({ min: 8 }),
+    check("confirm", "Passwords do not match").exists().equals("password")
   ],
+  checkNotAuthenticated,
   async (req: ICustomReq, res: Response) => {
     try {
-      const errors = validationResult(req);
-      if (!errors.isEmpty()) {
-        req.session.errors = errors;
-        req.session.success = false;
-        return res.redirect("/register");
+      const result = validationResult(req);
+
+      const errors = result.array().map(error => error.msg);
+
+      if (!result.isEmpty()) {
+        return res.render("register", { errors });
       }
 
       const user = await User.findOne({ email: req.body.email });
       if (user) {
-        req.session.errors = { message: "Email is taken" };
-        req.session.success = false;
-        return res.redirect("/register");
+        errors.push("Email is taken");
+        return res.render("register", { errors });
       }
-      req.session.success = true;
 
       const salt = await genSalt(10);
       const hashedPassword = await hash(req.body.password, salt);
@@ -70,13 +64,12 @@ router.post(
       sign(
         { userId: newUser._id },
         process.env.TOKEN_SECRET,
-        {
-          expiresIn: "24h"
-        },
+        { expiresIn: "24h" },
         async (err, token) => {
           if (err) throw err;
 
           const URL = `http://${req.headers.host}/confirm/${token}`;
+
           transporter
             .sendMail({
               from: process.env.EMAIL,
@@ -91,7 +84,11 @@ router.post(
         }
       );
 
-      res.redirect("/register");
+      req.flash(
+        "success",
+        "Confirmation link has been sent to your email, please confirm before login"
+      );
+      res.redirect("/login");
     } catch (err) {
       console.log(err);
       res.redirect("/register");
