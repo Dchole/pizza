@@ -1,0 +1,48 @@
+{{#if success }}
+<div class="card-panel blue">
+    <h6 class="center-align white-text">
+        <i class="material-icons left">info</i>
+        {{ success }}
+    </h6>
+</div>
+{{/if}}
+
+{{#if errors }}
+<ul>
+    {{#each errors }}
+    <li class="card-panel red">
+        <h6 class="center-align white-text">
+            <i class="material-icons left">error</i>
+            {{ this }}
+        </h6>
+    </li>
+    {{/each}}
+</ul>
+{{/if}}
+
+{{#if success_msg }}
+<div class="card-panel green">
+    <h6 class="center-align white-text">
+        <i class="material-icons left">success</i>
+        {{ success_msg }}
+    </h6>
+</div>
+{{/if}}
+
+{{#if error_msg }}
+<div class="card-panel red">
+    <h6 class="center-align white-text">
+        <i class="material-icons left">error</i>
+        {{ error_msg }}
+    </h6>
+</div>
+{{/if}}
+
+{{#if error }}
+<div class="card-panel red">
+    <h6 class="center-align white-text">
+        <i class="material-icons left">error</i>
+        {{ error }}
+    </h6>
+</div>
+{{/if}}
