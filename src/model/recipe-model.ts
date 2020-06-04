@@ -17,6 +17,7 @@ const RecipeSchema: Schema = new Schema(
       type: Number,
       required: true
     },
+    image: Schema.Types.Buffer,
     description: String,
     soldTo: [
       {

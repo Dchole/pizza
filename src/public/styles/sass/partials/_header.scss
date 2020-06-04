@@ -1,0 +1,57 @@
+header {
+  top: 0;
+  width: 100%;
+  z-index: 5000;
+  position: fixed;
+
+  nav {
+    background-color: transparent;
+    box-shadow: initial;
+    font-family: $text-font;
+
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-evenly;
+
+      @media #{$medium-and-down} {
+        justify-content: space-between;
+
+        .btn-floating {
+          margin-right: 20px;
+        }
+      }
+
+      #menu {
+        width: fit-content !important;
+        height: fit-content !important;
+      }
+
+      .btn-floating {
+        @media #{$small-and-down} {
+          width: 40px !important;
+          height: 40px !important;
+          margin-right: 10px;
+
+          i {
+            line-height: 40px !important;
+          }
+        }
+      }
+    }
+  }
+
+  .sidenav {
+    width: 100%;
+    height: 56px;
+    display: flex;
+    justify-content: space-evenly;
+
+    li > a {
+      padding: 0;
+    }
+  }
+}
+
+.navbar-fixed {
+  z-index: 1000;
+}

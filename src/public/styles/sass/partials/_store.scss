@@ -1,0 +1,62 @@
+#store {
+  margin-bottom: 100px;
+  min-height: 90vh;
+
+  .input-field {
+    margin: 20px auto 10px;
+  }
+
+  ul {
+    margin: auto;
+
+    li {
+      padding: 8px;
+      margin-bottom: 25px !important;
+      max-height: 435px;
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .card {
+    .card-title {
+      font-family: $header-font-2;
+      width: 100%;
+    }
+
+    p {
+      width: 100%;
+    }
+
+    i.right {
+      padding: 12px;
+      border-radius: 50%;
+      position: relative;
+      bottom: 5px;
+    }
+  }
+
+  @media #{$small-and-down} {
+    .input-field,
+    li {
+      width: 100%;
+    }
+
+    .col {
+      padding: 0;
+    }
+  }
+
+  @media (min-width: $small-screen-up) and (max-width: $large-screen-up) {
+    ul {
+      li {
+        width: 50% !important;
+        margin: 8px auto;
+      }
+
+      margin-bottom: 20px;
+    }
+  }
+}

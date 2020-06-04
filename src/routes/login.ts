@@ -27,9 +27,8 @@ router.post(
       const errors = result.array().map(error => error.msg);
 
       if (!result.isEmpty()) {
-        return res.render("login", { errors });
+        return res.render("login", { title: "Login", errors });
       }
-      console.log("login", req.session.path);
 
       const successRedirect = req.session.path ? req.session.path : "/home";
 

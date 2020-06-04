@@ -3,6 +3,7 @@ import { connect } from "mongoose";
 import path from "path";
 import express, { Application, Request, Response, NextFunction } from "express";
 import helmet from "helmet";
+import methodOverride from "method-override";
 import cookieParser from "cookie-parser";
 import session from "express-session";
 import hbs from "express-handlebars";
@@ -29,13 +30,18 @@ app.engine(
   hbs({
     extname: "hbs",
     defaultLayout: "layout",
-    layoutsDir: path.join(__dirname, "/views/layouts/")
+    layoutsDir: path.join(__dirname, "/views/layouts/"),
+
+    helpers: {
+      equalsto: (title: string) => title === "Welcome to our store"
+    }
   })
 );
 
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride("_method"));
 app.use(helmet());
 app.use(cookieParser());
 app.use(

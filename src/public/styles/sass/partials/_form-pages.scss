@@ -1,0 +1,31 @@
+#register-form {
+  h1 {
+    font-family: $header-font-2;
+  }
+
+  fieldset {
+    border: none;
+
+    .card-panel {
+      padding: 10px;
+    }
+
+    form {
+      width: 90%;
+      margin: 40px auto;
+
+      .right {
+        padding-top: 10px;
+      }
+    }
+  }
+}
+
+#login-form {
+  @extend #register-form;
+  width: 30%;
+
+  @media #{$small-and-down} {
+    width: 95%;
+  }
+}

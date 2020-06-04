@@ -1,0 +1,22 @@
+#register {
+  height: 50vh;
+  background: url("../../images/cover-2.jpg") no-repeat center center/cover;
+  background-color: #444;
+  background-blend-mode: overlay;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    font-family: $header-font;
+    margin: 0;
+  }
+
+  p {
+    margin: 0 0 20px;
+    font-family: $caption-font;
+    font-size: 1.4rem;
+  }
+}

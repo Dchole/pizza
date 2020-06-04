@@ -19,9 +19,9 @@ export function checkNotAuthenticated(
   res: Response,
   next: NextFunction
 ) {
-  if (req.isUnauthenticated()) {
-    return next();
+  if (req.isAuthenticated()) {
+    res.redirect(`${req.baseUrl}`);
   }
 
-  res.redirect(`/${req.baseUrl}`);
+  return next();
 }

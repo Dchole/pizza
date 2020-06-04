@@ -1,0 +1,57 @@
+@media (max-width: 599px) {
+  #showcase {
+    h1 {
+      font-size: 4rem;
+    }
+  }
+
+  #gallery {
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      width: 80%;
+    }
+
+    ul {
+      flex-direction: column;
+
+      li {
+        width: 100%;
+      }
+    }
+  }
+
+  #register {
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+
+  #info {
+    height: initial;
+
+    p {
+      width: 85%;
+    }
+
+    form {
+      h5 {
+        font-size: 1.4rem;
+      }
+
+      .input-field {
+        width: 100%;
+
+        .btn-floating {
+          padding-right: 35px;
+        }
+      }
+    }
+  }
+}

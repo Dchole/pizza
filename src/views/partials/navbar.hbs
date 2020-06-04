@@ -1,6 +1,7 @@
+{{#if (equalsto title)}}
 <header>
     <nav>
-        <div class="nav-wrapper">
+        <div class="transparent nav-wrapper">
             <a href="#" data-target="mobile-demo" class="sidenav-trigger" aria-label="menu">
                 <i class="material-icons">menu</i>
             </a>
@@ -11,14 +12,50 @@
                 <li><a href="/contact">Contact Us</a></li>
             </ul>
             <div>
-                <a href="/login" class="btn blue" aria-label="login">Login</a>
+                <a href="/login" class="btn blue">Login</a>
             </div>
         </div>
     </nav>
-
     <ul class="sidenav" id="mobile-demo">
         <li><a href="/about">About Us</a></li>
         <li><a href="/store">Store</a></li>
         <li><a href="/contact">Contact Us</a></li>
     </ul>
 </header>
+{{else}}
+<div class="navbar-fixed">
+    <header>
+        <nav>
+            <div class="blue z-depth-1 nav-wrapper">
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger" aria-label="menu">
+                    <i class="material-icons">menu</i>
+                </a>
+                <a href="/home" id="logo" aria-label="home">Logo</a>
+                <ul class="hide-on-med-and-down">
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/store">Store</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+                <div>
+                    <a href="#"
+                        class="dropdown-trigger waves-effect waves-dark btn-floating btn-large grey lighten-2 z-depth-0"
+                        data-target="menu" aria-label="account">
+                        <i class="material-icons grey-text text-darken-2">person</i>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/store">Store</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+        </ul>
+
+        <ul id="menu" class="dropdown-content">
+            <li><a href="/account"><i class="left material-icons">person</i>Account</a></li>
+            <li><a href="/cart"><i class="left material-icons">shopping_cart</i>Shopping Cart</a></li>
+            <li><a href="/logout"><i class="left material-icons">exit_to_app</i>Logout</a></li>
+        </ul>
+    </header>
+</div>
+{{/if}}
