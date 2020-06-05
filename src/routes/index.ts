@@ -5,7 +5,11 @@ import newsletterController from "../controllers/newsletter-controller";
 
 const router = Router();
 
-router.get("/", (_, res) => {
+router.get("/", (req: Request, res) => {
+  if (req.isAuthenticated()) {
+    return res.render("home", { title: "Home Page" });
+  }
+
   res.render("index", { title: "Welcome to our store" });
 });
 

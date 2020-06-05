@@ -14,7 +14,10 @@ import indexRoute from "./routes/index";
 import homeRoute from "./routes/home";
 import registerRoute from "./routes/register";
 import loginRoute from "./routes/login";
+import logoutRoute from "./routes/logout";
 import confirmRoute from "./routes/confirm";
+import accountRoute from "./routes/account";
+import cartRoute from "./routes/cart";
 import userController from "./controllers/user-controller";
 
 userController.passportLocal(passport);
@@ -76,7 +79,10 @@ app.use("/", indexRoute);
 app.use("/home", homeRoute);
 app.use("/register", registerRoute);
 app.use("/login", loginRoute);
+app.use("/logout", logoutRoute);
 app.use("/confirm", confirmRoute);
+app.use("/account", accountRoute);
+app.use("/cart", cartRoute);
 
 app.listen(process.env.PORT, () =>
   console.log(`App running on port ${process.env.PORT}`)

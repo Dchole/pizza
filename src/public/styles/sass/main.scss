@@ -10,6 +10,8 @@
 @import "./partials/form-pages";
 @import "./partials/homepage-cover";
 @import "./partials/store";
+@import "./partials/account";
+@import "./partials/cart";
 
 footer {
   background-color: darken($color: #454545, $amount: 10%);

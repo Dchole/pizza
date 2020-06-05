@@ -1,0 +1,111 @@
+{{> navbar }}
+<div id="account-page">
+    <h1 class="center-align">My Account</h1>
+
+    <div class="tab-menu">
+        <ul class="z-depth-1 tabs tabs-transparent amber accent-4">
+            <li class="tab">
+                <a class="white-text" href="#account">
+                    <i class="left material-icons">person</i>
+                    Account</a>
+            </li>
+            <li class="tab">
+                <a class="white-text" href="#history">
+                    <i class="left material-icons">history</i>
+                    Order History
+                </a>
+            </li>
+            <li class="tab">
+                <a class="white-text" href="#payment">
+                    <i class="left material-icons">payment</i>
+                    Payment Options
+                </a>
+            </li>
+        </ul>
+        <hr />
+    </div>
+
+    <section class="container" id="account">
+        <h2>Account Setting</h2>
+        <ul class="container collection">
+            <li class="collection-item">
+                <ul class="row">
+                    <li class="col s4">Full Name</li>
+                    <li class="col s4 center-align">Value</li>
+                    <li class="col s4 right-align"><i class="material-icons">edit</i>&nbsp;Edit</li>
+                </ul>
+            </li>
+            <li class="collection-item">
+                <ul class="row">
+                    <li class="col s4">email</li>
+                    <li class="col s4 center-align">Value</li>
+                    <li class="col s4 right-align"><i class="material-icons">edit</i>&nbsp;Edit</li>
+                </ul>
+            </li>
+            <li class="collection-item">
+                <ul class="row">
+                    <li class="col s4">Tel No</li>
+                    <li class="col s4 center-align">Value</li>
+                    <li class="col s4 right-align"><i class="material-icons">edit</i>&nbsp;Edit</li>
+                </ul>
+            </li>
+            <li class="collection-item">
+                <ul class="row">
+                    <li class="col s4">Password</li>
+                    <li class="col s4 center-align">Value</li>
+                    <li class="col s4 right-align"><i class="material-icons">edit</i>&nbsp;Edit</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+    <section id="history" class="container">
+        <h2>Order History</h2>
+        <table class="container responsive-table highlight striped">
+            <thead>
+                <tr>
+                    <th>Transaction ID</th>
+                    <th>Date/Time</th>
+                    <th>Recipe</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>2314ded2ef2234fs</td>
+                    <td>23-10-20</td>
+                    <td>Chicken Pizza</td>
+                    <td>$0.87</td>
+                </tr>
+                <tr>
+                    <td>2314ded2ef2234fs</td>
+                    <td>23-10-20</td>
+                    <td>Chicken Pizza</td>
+                    <td>$0.87</td>
+                </tr>
+                <tr>
+                    <td>2314ded2ef2234fs</td>
+                    <td>23-10-20</td>
+                    <td>Chicken Pizza</td>
+                    <td>$0.87</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section id="payment" class="container">
+        <h2>Payment Method</h2>
+        <ul class="container collection">
+            <li class="collection-item">
+                Stripe
+                <img src="/images/stripe.jpg" alt="stripe" width="100">
+            </li>
+            <li class="collection-item">Mobile Money
+                <img src="/images/mobile_money.jpg" alt="mobile-money" width="100">
+            </li>
+            <li class="collection-item">
+                Cash
+                <img src="/images/cash.png" alt="cash" width="100">
+            </li>
+        </ul>
+    </section>
+</div>

@@ -1,10 +1,10 @@
-import { Router, Response } from "express";
+import { Router, Response, Request } from "express";
 import { checkAuthenticated } from "./middleware/auth";
 
 const router = Router();
 
 router.get("/", checkAuthenticated, (_, res: Response) => {
-  res.render("home", { title: "Home Page" });
+  res.render("account", { title: "Account" });
 });
 
 export default router;

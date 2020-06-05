@@ -1,0 +1,39 @@
+#cart {
+  h1 {
+    font-family: $header-font;
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+
+    p {
+      max-width: 300px;
+    }
+
+    h2,
+    h3 {
+      margin: 0;
+    }
+
+    h2 {
+      margin-bottom: 8px;
+      font-size: 3rem;
+      font-family: $header-font-2;
+    }
+
+    h3 {
+      margin-top: 8px;
+      font-size: 2rem;
+      font-family: $sub-header-font;
+    }
+
+    .chip {
+      margin: 0;
+    }
+  }
+
+  .card-action {
+    padding: 5px;
+  }
+}

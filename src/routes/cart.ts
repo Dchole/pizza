@@ -4,7 +4,7 @@ import { checkAuthenticated } from "./middleware/auth";
 const router = Router();
 
 router.get("/", checkAuthenticated, (_, res: Response) => {
-  res.render("home", { title: "Home Page" });
+  res.render("cart", { title: "Shopping Cart" });
 });
 
 export default router;
