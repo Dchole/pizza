@@ -4828,9 +4828,9 @@ small {
 .btn-small[disabled],
 .btn-flat[disabled] {
   pointer-events: none;
-  background-color: #DFDFDF !important;
+  background-color: #dfdfdf !important;
   box-shadow: none;
-  color: #9F9F9F !important;
+  color: #9f9f9f !important;
   cursor: default;
 }
 .btn.disabled:hover,
@@ -4848,8 +4848,8 @@ small {
 .btn-large[disabled]:hover,
 .btn-small[disabled]:hover,
 .btn-flat[disabled]:hover {
-  background-color: #DFDFDF !important;
-  color: #9F9F9F !important;
+  background-color: #dfdfdf !important;
+  color: #9f9f9f !important;
 }
 
 .btn,
@@ -6430,7 +6430,7 @@ textarea.materialize-textarea {
   background-color: rgba(38, 166, 154, 0.15);
 }
 .switch label .lever:after {
-  background-color: #F1F1F1;
+  background-color: #f1f1f1;
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
@@ -8334,6 +8334,9 @@ header .sidenav li > a {
     padding-right: 35px;
   }
 }
+#register-form, #login-form {
+  width: 45%;
+}
 #register-form h1, #login-form h1 {
   font-family: "Lobster Two", cursive;
 }
@@ -8341,7 +8344,7 @@ header .sidenav li > a {
   border: none;
 }
 #register-form fieldset .card-panel, #login-form fieldset .card-panel {
-  padding: 10px;
+  padding: 10px 0;
 }
 #register-form fieldset form, #login-form fieldset form {
   width: 90%;
@@ -8350,14 +8353,31 @@ header .sidenav li > a {
 #register-form fieldset form .right, #login-form fieldset form .right {
   padding-top: 10px;
 }
+#register-form fieldset form div, #login-form fieldset form div {
+  padding: 0;
+}
+#register-form fieldset form div input, #login-form fieldset form div input {
+  margin: 0;
+}
+#register-form fieldset form button, #login-form fieldset form button {
+  margin: 0;
+}
+#register-form fieldset form .links, #login-form fieldset form .links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+@media only screen and (max-width : 600px) {
+  #register-form, #login-form {
+    width: 95%;
+  }
+  #register-form div, #login-form div {
+    width: 100%;
+  }
+}
 
 #login-form {
   width: 30%;
-}
-@media only screen and (max-width : 600px) {
-  #login-form {
-    width: 95%;
-  }
 }
 
 #cover {
@@ -8433,6 +8453,11 @@ header .sidenav li > a {
   align-items: center;
   width: fit-content;
 }
+@media only screen and (max-width : 600px) {
+  #account-page .tabs {
+    width: 100%;
+  }
+}
 #account-page .tabs .tab {
   line-height: initial;
   height: initial;
@@ -8480,6 +8505,23 @@ header .sidenav li > a {
 }
 #cart .card-action {
   padding: 5px;
+}
+
+#confirm h1 {
+  font-family: "Lobster", sans-serif;
+}
+@media only screen and (max-width : 600px) {
+  #confirm h1 {
+    font-size: 3rem;
+  }
+}
+#confirm .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: auto;
+  height: 200px;
 }
 
 footer {

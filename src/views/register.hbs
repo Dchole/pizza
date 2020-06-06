@@ -2,24 +2,28 @@
     <h1 class="center-align">Sign Up</h1>
     <fieldset class="card" title="Sign Up">
         {{> messages }}
-        <form action="/register" method="POST">
-            <div>
-                <label for="username">Username</label>
-                <input type="text" name="username" id="username" autofocus required />
+        <form class="row" action="/register" method="POST">
+            <div class="input-field col s6">
+                <label for="firstName">FirstName</label>
+                <input type="text" name="firstName" id="firstName" autofocus required />
             </div>
-            <div>
+            <div class="input-field col s6">
+                <label for="lastName">lastName</label>
+                <input type="text" name="lastName" id="lastName" required />
+            </div>
+            <div class="input-field col s12">
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" autofocus required />
+                <input type="email" name="email" id="email" required />
             </div>
-            <div>
+            <div class="input-field col s12">
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password" autofocus required />
+                <input type="password" name="password" id="password" required />
             </div>
-            <div>
+            <div class="input-field col s12">
                 <label for="confirm">Confirm Password</label>
-                <input type="password" name="confirm" id="confirm" autofocus required />
+                <input type="password" name="confirm" id="confirm" required />
             </div>
-            <button type="submit" class="waves-effect waves-dark btn blue white-text">Submit</button>
+            <button type="submit" class="col s12 waves-effect waves-dark btn blue white-text">Submit</button>
             <a href="/login" class="right">Already have an account? Login</a>
         </form>
     </fieldset>

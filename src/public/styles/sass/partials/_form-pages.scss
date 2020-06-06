@@ -1,4 +1,6 @@
 #register-form {
+  width: 45%;
+
   h1 {
     font-family: $header-font-2;
   }
@@ -7,7 +9,7 @@
     border: none;
 
     .card-panel {
-      padding: 10px;
+      padding: 10px 0;
     }
 
     form {
@@ -17,6 +19,32 @@
       .right {
         padding-top: 10px;
       }
+
+      div {
+        padding: 0;
+
+        input {
+          margin: 0;
+        }
+      }
+
+      button {
+        margin: 0;
+      }
+
+      .links {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  @media #{$small-and-down} {
+    width: 95%;
+
+    div {
+      width: 100%;
     }
   }
 }
@@ -24,8 +52,4 @@
 #login-form {
   @extend #register-form;
   width: 30%;
-
-  @media #{$small-and-down} {
-    width: 95%;
-  }
 }

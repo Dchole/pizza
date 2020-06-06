@@ -18,6 +18,7 @@ import logoutRoute from "./routes/logout";
 import confirmRoute from "./routes/confirm";
 import accountRoute from "./routes/account";
 import cartRoute from "./routes/cart";
+import adminRoute from "./routes/admin";
 import userController from "./controllers/user-controller";
 
 userController.passportLocal(passport);
@@ -61,6 +62,7 @@ app.use(flash());
 app.use((req: Request, res: Response, next: NextFunction) => {
   res.locals.success_msg = req.flash("success_msg");
   res.locals.error_msg = req.flash("error_msg");
+  res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
 
   next();
@@ -83,6 +85,7 @@ app.use("/logout", logoutRoute);
 app.use("/confirm", confirmRoute);
 app.use("/account", accountRoute);
 app.use("/cart", cartRoute);
+app.use("/admin", adminRoute);
 
 app.listen(process.env.PORT, () =>
   console.log(`App running on port ${process.env.PORT}`)

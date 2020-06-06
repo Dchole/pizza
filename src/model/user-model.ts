@@ -1,17 +1,23 @@
 import { Schema, model, Document } from "mongoose";
 
 export interface IUser extends Document {
-  username: string;
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
   confirmed: boolean;
   cart: string[] | never[];
   transactions: string[] | never[];
+  admin: boolean;
 }
 
 const UserSchema: Schema = new Schema(
   {
-    username: {
+    firstName: {
+      type: String,
+      required: true
+    },
+    lastName: {
       type: String,
       required: true
     },
@@ -40,7 +46,11 @@ const UserSchema: Schema = new Schema(
       {
         type: Schema.Types.ObjectId
       }
-    ]
+    ],
+    admin: {
+      type: Schema.Types.Boolean,
+      default: false
+    }
   },
   { timestamps: true }
 );

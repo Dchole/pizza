@@ -15,6 +15,10 @@
     align-items: center;
     width: fit-content;
 
+    @media #{$small-and-down} {
+      width: 100%;
+    }
+
     .tab {
       line-height: initial;
       height: initial;
