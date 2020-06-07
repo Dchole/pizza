@@ -20,7 +20,9 @@ export function checkNotAuthenticated(
   next: NextFunction
 ) {
   if (req.isAuthenticated()) {
-    res.redirect(`${req.baseUrl}`);
+    req.session.path
+      ? res.redirect(`/${req.session.path}`)
+      : res.redirect("/home");
   }
 
   return next();

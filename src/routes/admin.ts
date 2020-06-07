@@ -1,5 +1,5 @@
 import { Router, Request, Response, NextFunction } from "express";
-import { checkNotAuthenticated } from "./middleware/auth";
+import { checkNotAuthenticated, checkAuthenticated } from "./middleware/auth";
 import { check, validationResult } from "express-validator";
 import passport from "passport";
 import { IUser } from "../model/user-model";
@@ -10,8 +10,12 @@ router.get("/", (_, res: Response) => {
   res.redirect("/admin/login");
 });
 
-router.get("/login", (_, res: Response) => {
-  res.render("login", { title: "Admin Login" });
+router.get("/dashboard", checkAuthenticated, (_, res: Response) => {
+  res.sendStatus(200);
+});
+
+router.get("/login", checkNotAuthenticated, (_, res: Response) => {
+  res.render("adminLogin", { title: "Admin Login" });
 });
 
 interface ICustomReq extends Request {
@@ -19,7 +23,7 @@ interface ICustomReq extends Request {
 }
 
 router.post(
-  "/",
+  "/login",
   [
     check("email", "Invalid Email Address").exists().isEmail(),
     check("password", "Password is too short").exists().isLength({ min: 8 })

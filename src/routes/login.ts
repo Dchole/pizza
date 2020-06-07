@@ -6,7 +6,7 @@ import passport from "passport";
 
 const router = Router();
 
-router.get("/", (_, res: Response) => {
+router.get("/", checkNotAuthenticated, (_, res: Response) => {
   res.render("login", { title: "Login" });
 });
 
