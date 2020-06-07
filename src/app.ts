@@ -7,6 +7,8 @@ import methodOverride from "method-override";
 import cookieParser from "cookie-parser";
 import session from "express-session";
 import hbs from "express-handlebars";
+import Handlebars from "handlebars";
+import { allowInsecurePrototypeAccess } from "@handlebars/allow-prototype-access";
 import flash from "connect-flash";
 import passport from "passport";
 
@@ -36,6 +38,8 @@ app.engine(
     defaultLayout: "layout",
     layoutsDir: path.join(__dirname, "/views/layouts/"),
 
+    handlebars: allowInsecurePrototypeAccess(Handlebars),
+
     helpers: {
       equalsto: (title: string) => title === "Welcome to our store"
     }
@@ -44,6 +48,7 @@ app.engine(
 
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.json());
+app.use(express.text());
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 app.use(helmet());

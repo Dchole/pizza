@@ -23,6 +23,11 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
+"@handlebars/allow-prototype-access@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@handlebars/allow-prototype-access/-/allow-prototype-access-1.0.3.tgz#c1377438ba59da7d45db43e3be7d6f3eeece8103"
+  integrity sha512-UjIJnXYirTtSuRAC/3Sq+2XCRd3+JBW5+wQVu7cRCXisvEj/u/913QKH3D5+YVyJkz6cAyD70sQkaL5zvXql5Q==
+
 "@types/bcryptjs@^2.4.2":
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/@types/bcryptjs/-/bcryptjs-2.4.2.tgz#e3530eac9dd136bfdfb0e43df2c4c5ce1f77dfae"

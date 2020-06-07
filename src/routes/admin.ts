@@ -1,8 +1,12 @@
 import { Router, Request, Response, NextFunction } from "express";
-import { checkNotAuthenticated, checkAuthenticated } from "./middleware/auth";
+import {
+  checkNotAuthenticated,
+  checkAuthenticated,
+  checkAdmin
+} from "./middleware/auth";
 import { check, validationResult } from "express-validator";
-import passport from "passport";
 import { IUser } from "../model/user-model";
+import passport from "passport";
 
 const router = Router();
 
@@ -11,7 +15,7 @@ router.get("/", (_, res: Response) => {
 });
 
 router.get("/dashboard", checkAuthenticated, (_, res: Response) => {
-  res.sendStatus(200);
+  res.render("adminDashboard", { title: "Admin Dashboard" });
 });
 
 router.get("/login", checkNotAuthenticated, (_, res: Response) => {
@@ -28,7 +32,7 @@ router.post(
     check("email", "Invalid Email Address").exists().isEmail(),
     check("password", "Password is too short").exists().isLength({ min: 8 })
   ],
-  checkNotAuthenticated,
+  // checkAdmin,
   async (req: ICustomReq, res: Response, next: NextFunction) => {
     try {
       const result = validationResult(req);

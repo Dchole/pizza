@@ -1,0 +1,25 @@
+.container {
+  margin: auto;
+
+  .header-card {
+    border-radius: 10%/20%;
+    margin: 20px -10px 10px;
+    transition: all ease-in 200ms;
+    cursor: pointer;
+
+    &:hover {
+      z-index: 1000;
+      @extend .z-depth-4;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-family: $header-font-2;
+    }
+
+    p {
+      font-size: 1.6rem;
+      font-family: $caption-font;
+    }
+  }
+}

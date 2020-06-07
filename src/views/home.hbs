@@ -5,31 +5,32 @@
     <section id="store" class="container row">
         <div id="search" class="col s5">
         </div>
-        <div class="input-field col s6">
+        <form class="input-field col s6">
             <label for="search">Search</label>
             <input type="text" name="search" id="search">
-        </div>
+        </form>
         <ul class="col s12">
-            <li class="col s4">
+            {{#each pizza}}
+            <li data-id={{this._id}} data-item={{...cart}} class="col s4">
                 <div class="card">
                     <div class="card-image">
-                        <img src="/images/gallery-thumbnail-1.jpg" alt="" />
-                        <span id="price" class="card-title right-align">$30</span>
-                        <span id="recipe" class="card-title left-align">Recipe</span>
+                        <img src={{this.image}} alt={{this.recipe}} />
+                        <span id="price" class="card-title right-align">${{this.price}}</span>
+                        <span id="recipe" class="card-title left-align">{{this.recipe}}</span>
                     </div>
                     <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
+                        <p>{{this.description}}</p>
                     </div>
                     <div class="card-action">
-                        <a class="waves-effect waves-light btn amber accent-4">
+                        <button id="add-to-cart" class="waves-effect waves-light btn amber accent-4">
                             <i class="material-icons left">add_shopping_cart</i>
                             Add to cart
-                        </a>
+                        </button>
                         <i class="waves-effect waves-dark material-icons right">open_in_new</i>
                     </div>
                 </div>
             </li>
+            {{/each}}
         </ul>
     </section>
     {{> footer }}

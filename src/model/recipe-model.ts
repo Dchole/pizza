@@ -3,7 +3,9 @@ import { Schema, model, Document } from "mongoose";
 export interface IRecipe extends Document {
   recipe: string;
   price: number;
+  image: string;
   description: string;
+  ingredients: string[];
   soldTo: string[];
 }
 
@@ -17,8 +19,9 @@ const RecipeSchema: Schema = new Schema(
       type: Number,
       required: true
     },
-    image: Schema.Types.Buffer,
+    image: String,
     description: String,
+    ingredients: [String],
     soldTo: [
       {
         type: Schema.Types.ObjectId,

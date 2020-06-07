@@ -9,6 +9,7 @@
     "build": "tsc"
   },
   "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.3",
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.5",
@@ -19,6 +20,7 @@
     "express-session": "^1.17.1",
     "express-validator": "^6.5.0",
     "gridfs-stream": "^1.1.1",
+    "handlebars": "^4.7.6",
     "helmet": "^3.22.0",
     "http-errors": "^1.7.3",
     "jsonwebtoken": "^8.5.1",

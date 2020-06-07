@@ -13,10 +13,5 @@
 @import "./partials/account";
 @import "./partials/cart";
 @import "./partials/confirm";
-
-footer {
-  background-color: darken($color: #454545, $amount: 10%);
-  color: white;
-  padding: 12px;
-  font-family: $text-font;
-}
+@import "./partials/dashboard";
+@import "./partials/footer";
