@@ -7,6 +7,7 @@ import {
 import { check, validationResult } from "express-validator";
 import { IUser } from "../model/user-model";
 import passport from "passport";
+import pizzaController from "../controllers/pizza-controller";
 
 const router = Router();
 
@@ -16,6 +17,20 @@ router.get("/", (_, res: Response) => {
 
 router.get("/dashboard", checkAuthenticated, (_, res: Response) => {
   res.render("adminDashboard", { title: "Admin Dashboard" });
+});
+
+router.post("/", async (req: Request, res: Response) => {
+  try {
+    await pizzaController.CreatePizza({
+      name: req.body.name,
+      price: req.body.price,
+      image: req.body.image,
+      description: req.body.description
+    });
+    res.sendStatus(200);
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 router.get("/login", checkNotAuthenticated, (_, res: Response) => {

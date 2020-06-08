@@ -9,7 +9,7 @@ SEARCH_INPUT.addEventListener("keyup", event => {
   const pizzas = STORE.getElementsByTagName("li");
 
   [...pizzas].forEach(pizza => {
-    const title = pizza.querySelector("#recipe").textContent;
+    const title = pizza.querySelector("#name").textContent;
 
     if (title.toLowerCase().includes(term)) pizza.style.display = "block";
     else pizza.style.display = "none";
@@ -32,9 +32,6 @@ const cards = STORE.querySelectorAll("li");
     console.log(cart);
 
     if (cart.includes(card.dataset.id)) {
-      actionBtn.classList = ["waves-effect waves-light btn amber accent-4"];
-      actionBtn.innerHTML = `<i class="material-icons left">add_shopping_cart</i>Add to cart`;
-
       try {
         const res = await fetch("/cart/remove", {
           method: "PUT",
@@ -45,14 +42,13 @@ const cards = STORE.querySelectorAll("li");
         });
 
         cart = (await res.json()).cart;
-        console.log(cart);
       } catch (err) {
         console.log(err);
       }
-    } else {
-      actionBtn.classList = ["waves-effect waves-light btn blue"];
-      actionBtn.innerHTML = `<i class="material-icons left">remove_shopping_cart</i>Remove pizza`;
 
+      actionBtn.classList = ["waves-effect waves-light btn amber accent-4"];
+      actionBtn.innerHTML = `<i class="material-icons left">add_shopping_cart</i>Add to cart`;
+    } else {
       try {
         const res = await fetch("/cart/add", {
           method: "PUT",
@@ -63,7 +59,9 @@ const cards = STORE.querySelectorAll("li");
         });
 
         cart = (await res.json()).cart;
-        console.log(cart);
+
+        actionBtn.classList = ["waves-effect waves-light btn blue"];
+        actionBtn.innerHTML = `<i class="material-icons left">remove_shopping_cart</i>Remove pizza`;
       } catch (err) {
         console.log(err);
       }

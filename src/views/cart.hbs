@@ -2,30 +2,33 @@
 <div id="cart">
     <div class="container">
         <h1>My Cart</h1>
-        <div class="card horizontal small">
-            <div class="card-image">
-                <img src="/images/gallery-thumbnail-1.jpg" alt="">
-            </div>
-            <div class="card-stacked">
-                <div class="card-content">
-                    <h2>Recipe</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi a accusantium asperiores
-                        perspiciatis accusamus reiciendis..</p>
-                    <h3>Ingredients</h3>
-                    <ul>
-                        <li class="chip">Ingredient</li>
-                        <li class="chip">Ingredient</li>
-                        <li class="chip">Ingredient</li>
-                        <a>more...</a>
-                    </ul>
+        <ul>
+            {{#each itemInCart}}
+            <li class="card horizontal small">
+                <div class="card-image">
+                    <img src={{this.image}} alt="">
                 </div>
-                <div class="card-action">
-                    <a class="waves-effect waves-light btn right">
-                        <i class="material-icons left">shopping_basket</i>
-                        Check Out
-                    </a>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <h2>{{this.name}}</h2>
+                        <p>{{this.description}}</p>
+                        <h3>Ingredients</h3>
+                        <ul>
+                            <li class="chip">Ingredient</li>
+                            <li class="chip">Ingredient</li>
+                            <li class="chip">Ingredient</li>
+                            <a>more...</a>
+                        </ul>
+                    </div>
+                    <div class="card-action">
+                        <a class="waves-effect waves-light btn right">
+                            <i class="material-icons left">shopping_basket</i>
+                            Check Out
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </li>
+            {{/each}}
+        </ul>
     </div>
 </div>

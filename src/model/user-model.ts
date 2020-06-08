@@ -39,7 +39,7 @@ const UserSchema: Schema = new Schema(
     cart: [
       {
         type: Schema.Types.ObjectId,
-        ref: "Item"
+        ref: "Pizza"
       }
     ],
     transactions: [

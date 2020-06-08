@@ -1,7 +1,7 @@
 import { Schema, model, Document } from "mongoose";
 
-export interface IRecipe extends Document {
-  recipe: string;
+export interface IPizza extends Document {
+  name: string;
   price: number;
   image: string;
   description: string;
@@ -9,9 +9,9 @@ export interface IRecipe extends Document {
   soldTo: string[];
 }
 
-const RecipeSchema: Schema = new Schema(
+const PizzaSchema: Schema = new Schema(
   {
-    recipe: {
+    name: {
       type: String,
       required: true
     },
@@ -32,4 +32,4 @@ const RecipeSchema: Schema = new Schema(
   { timestamps: true }
 );
 
-export default model<IRecipe>("Recipe", RecipeSchema);
+export default model<IPizza>("Pizza", PizzaSchema);
