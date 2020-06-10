@@ -2,33 +2,46 @@
 <div id="cart">
     <div class="container">
         <h1>My Cart</h1>
+        {{#if itemsInCart}}
         <ul>
-            {{#each itemInCart}}
-            <li class="card horizontal small">
+            {{#each itemsInCart}}
+            <li data-id={{this._id}} class="card horizontal small">
                 <div class="card-image">
                     <img src={{this.image}} alt="">
                 </div>
                 <div class="card-stacked">
                     <div class="card-content">
-                        <h2>{{this.name}}</h2>
-                        <p>{{this.description}}</p>
-                        <h3>Ingredients</h3>
-                        <ul>
-                            <li class="chip">Ingredient</li>
-                            <li class="chip">Ingredient</li>
-                            <li class="chip">Ingredient</li>
-                            <a>more...</a>
-                        </ul>
+                        <div>
+                            <h2>{{this.name}}</h2>
+                            <p>{{this.description}}</p>
+                        </div>
+                        <div class="config">
+                            <h4>Quantity</h4>
+                            <button class="btn-floating waves-effect waves-red amber accent-4">
+                                <i class="material-icons">chevron_left</i>
+                            </button>
+                            <span class="quantity">{{this.quantity}}</span>
+                            <button class="btn-floating waves-effect waves-green amber accent-4">
+                                <i class="material-icons">chevron_right</i>
+                            </button>
+                        </div>
                     </div>
                     <div class="card-action">
                         <a class="waves-effect waves-light btn right">
                             <i class="material-icons left">shopping_basket</i>
                             Check Out
                         </a>
+                        <a class="waves-effect waves-light btn right">
+                            <i class="material-icons left">remove</i>
+                            Remove
+                        </a>
                     </div>
                 </div>
             </li>
             {{/each}}
         </ul>
+        {{else}}
+        <h2 class="center-align">No item in cart</h2>
+        {{/if}}
     </div>
 </div>

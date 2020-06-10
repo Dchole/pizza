@@ -1,15 +1,13 @@
 import { Router, Request, Response } from "express";
 import { genSalt, hash } from "bcryptjs";
 import { check, validationResult } from "express-validator";
-import { createTransport } from "nodemailer";
-import { sign } from "jsonwebtoken";
 import { checkNotAuthenticated } from "./middleware/auth";
 import User, { IUser } from "../model/user-model";
 import userController from "../controllers/user-controller";
 
 const router = Router();
 
-router.get("/", (_, res: Response) => {
+router.get("/", checkNotAuthenticated, (_, res: Response) => {
   res.render("register", { title: "Sign Up" });
 });
 
@@ -26,7 +24,6 @@ router.post(
     check("password", "Password is too weak").exists().isLength({ min: 8 }),
     check("confirm", "Passwords do not match").exists().equals("password")
   ],
-  checkNotAuthenticated,
   async (req: ICustomReq, res: Response) => {
     try {
       const result = validationResult(req);

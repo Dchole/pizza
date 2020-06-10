@@ -8479,9 +8479,15 @@ header .sidenav li > a {
 #cart h1 {
   font-family: "Lobster", sans-serif;
 }
+#cart .card {
+  height: fit-content;
+}
+#cart .card-image img {
+  width: 300px;
+}
 #cart .card-content {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
 }
 #cart .card-content p {
   max-width: 300px;
@@ -8500,11 +8506,22 @@ header .sidenav li > a {
   font-size: 2rem;
   font-family: "Roboto Slab", serif;
 }
+#cart .card-content h4 {
+  font-family: "Roboto Slab", serif;
+  font-size: 2rem;
+  margin: 0 auto 10px;
+}
 #cart .card-content .chip {
   margin: 0;
 }
+#cart .card-content #config span {
+  padding: 8px;
+}
 #cart .card-action {
   padding: 5px;
+}
+#cart .card-action a {
+  margin-left: 6px;
 }
 
 #confirm h1 {

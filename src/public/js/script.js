@@ -4,7 +4,8 @@ M.AutoInit();
 const SEARCH_INPUT = document.querySelector('input[name="search"]');
 const STORE = document.querySelector("#store ul");
 
-SEARCH_INPUT.addEventListener("keyup", event => {
+/* SEACRCH */
+SEARCH_INPUT?.addEventListener("keyup", event => {
   const term = event.target.value.toLowerCase();
   const pizzas = STORE.getElementsByTagName("li");
 
@@ -16,21 +17,20 @@ SEARCH_INPUT.addEventListener("keyup", event => {
   });
 });
 
-const cards = STORE.querySelectorAll("li");
+/* ADD TO CARD */
+const cards = STORE?.querySelectorAll("li");
 
-[...cards].forEach(card => {
+cards?.forEach(card => {
   const actionBtn = card.querySelector("#add-to-cart");
 
   if (card.dataset.item.includes(card.dataset.id)) {
-    actionBtn.classList = ["waves-effect waves-light btn blue"];
+    actionBtn.classList = ["waves-effect waves-light btn"];
     actionBtn.innerHTML = `<i class="material-icons left">remove_shopping_cart</i>Remove pizza`;
   }
 
   let cart = card.dataset.item;
 
   actionBtn.addEventListener("click", async () => {
-    console.log(cart);
-
     if (cart.includes(card.dataset.id)) {
       try {
         const res = await fetch("/cart/remove", {
@@ -60,11 +60,85 @@ const cards = STORE.querySelectorAll("li");
 
         cart = (await res.json()).cart;
 
-        actionBtn.classList = ["waves-effect waves-light btn blue"];
+        actionBtn.classList = ["waves-effect waves-light btn"];
         actionBtn.innerHTML = `<i class="material-icons left">remove_shopping_cart</i>Remove pizza`;
       } catch (err) {
         console.log(err);
       }
+    }
+  });
+});
+
+/* INCREASE AND DECREASE QUANTITY */
+const cartItems = document.querySelectorAll("#cart li");
+
+cartItems.forEach(item => {
+  const QUANTITY = item.querySelector(".quantity");
+  const DECREASE_QUANTITY = item.querySelector(".config button");
+  const INCREASE_QUANTITY = item.querySelector(".config button:last-child");
+  const removeBtn = item.querySelector("#cart .card-action a:last-child");
+
+  INCREASE_QUANTITY.addEventListener("click", async () => {
+    QUANTITY.textContent++;
+
+    try {
+      await fetch("/cart/add", {
+        method: "PUT",
+        body: item.dataset.id,
+        headers: {
+          "Content-Type": "text/plain"
+        }
+      });
+    } catch (err) {
+      console.log(err);
+    }
+
+    item.style.border = "none";
+    removeBtn.classList = ["waves-effect waves-light btn right"];
+    removeBtn.innerHTML = `<i class="material-icons left">remove</i>Remove`;
+  });
+
+  DECREASE_QUANTITY.addEventListener("click", async () => {
+    if (+QUANTITY.textContent) {
+      QUANTITY.textContent--;
+
+      try {
+        await fetch("/cart/remove", {
+          method: "PUT",
+          body: item.dataset.id,
+          headers: {
+            "Content-Type": "text/plain"
+          }
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    if (!+QUANTITY.textContent) {
+      item.style.border = "1px solid red";
+      removeBtn.innerHTML = `<i class="material-icons left">clear</i>Removed`;
+      removeBtn.classList = ["waves-effect waves-light btn right red"];
+    }
+  });
+
+  removeBtn?.addEventListener("click", async () => {
+    try {
+      await fetch("/cart/item-remove", {
+        method: "PUT",
+        body: item.dataset.id,
+        headers: {
+          "Content-Type": "text/plain"
+        }
+      });
+
+      QUANTITY.textContent = 0;
+
+      item.style.border = "1px solid red";
+      removeBtn.innerHTML = `<i class="material-icons left">clear</i>Removed`;
+      removeBtn.classList = ["waves-effect waves-light btn right red"];
+    } catch (err) {
+      console.log(err);
     }
   });
 });

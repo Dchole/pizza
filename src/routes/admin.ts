@@ -11,11 +11,11 @@ import pizzaController from "../controllers/pizza-controller";
 
 const router = Router();
 
-router.get("/", (_, res: Response) => {
+router.get("/", checkNotAuthenticated, (_, res: Response) => {
   res.redirect("/admin/login");
 });
 
-router.get("/dashboard", checkAuthenticated, (_, res: Response) => {
+router.get("/dashboard", checkAuthenticated, checkAdmin, (_, res: Response) => {
   res.render("adminDashboard", { title: "Admin Dashboard" });
 });
 

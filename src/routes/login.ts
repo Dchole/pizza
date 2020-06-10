@@ -20,7 +20,6 @@ router.post(
     check("email", "Invalid Email Address").exists().isEmail(),
     check("password", "Password is too short").exists().isLength({ min: 8 })
   ],
-  checkNotAuthenticated,
   async (req: ICustomReq, res: Response, next: NextFunction) => {
     try {
       const result = validationResult(req);

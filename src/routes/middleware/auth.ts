@@ -11,7 +11,6 @@ export function checkAuthenticated(
       return next();
     }
 
-    req.session.path = req.baseUrl;
     req.flash("error_msg", "Please login to view this page");
     res.redirect("/login");
   } catch (err) {
@@ -26,9 +25,7 @@ export function checkNotAuthenticated(
 ) {
   try {
     if (req.isAuthenticated()) {
-      req.session.path
-        ? res.redirect(`/${req.session.path}`)
-        : res.redirect("/home");
+      res.redirect("/home");
     }
 
     return next();

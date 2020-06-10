@@ -3,9 +3,19 @@
     font-family: $header-font;
   }
 
+  .card {
+    height: fit-content;
+  }
+
+  .card-image {
+    img {
+      width: 300px;
+    }
+  }
+
   .card-content {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
 
     p {
       max-width: 300px;
@@ -28,12 +38,25 @@
       font-family: $sub-header-font;
     }
 
+    h4 {
+      font-family: $sub-header-font;
+      font-size: 2rem;
+      margin: 0 auto 10px;
+    }
     .chip {
       margin: 0;
+    }
+
+    #config span {
+      padding: 8px;
     }
   }
 
   .card-action {
     padding: 5px;
+
+    a {
+      margin-left: 6px;
+    }
   }
 }
