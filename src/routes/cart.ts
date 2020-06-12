@@ -1,6 +1,6 @@
 import { Router, Response, Request, NextFunction } from "express";
-import { checkAuthenticated } from "./middleware/auth";
 import User from "../model/user-model";
+import { checkAuthenticated } from "./middleware/auth";
 
 const router = Router();
 
@@ -16,9 +16,16 @@ router.get("/", checkAuthenticated, async (req: Request, res: Response) => {
       return item;
     });
 
+    const totalPrice = [...user?.cart].reduce(
+      //@ts-ignore
+      (acc, curr) => acc + curr.price,
+      0
+    );
+
     res.render("cart", {
       title: "Shopping Cart",
-      itemsInCart: [...new Set(itemsInCart)]
+      itemsInCart: [...new Set(itemsInCart)],
+      totalPrice
     });
   } catch (err) {
     console.log(err);

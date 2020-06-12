@@ -11,10 +11,6 @@ router.get("/", checkNotAuthenticated, (_, res: Response) => {
   res.render("register", { title: "Sign Up" });
 });
 
-interface ICustomReq extends Request {
-  body: IUser;
-}
-
 router.post(
   "/",
   [
@@ -24,7 +20,7 @@ router.post(
     check("password", "Password is too weak").exists().isLength({ min: 8 }),
     check("confirm", "Passwords do not match").exists().equals("password")
   ],
-  async (req: ICustomReq, res: Response) => {
+  async (req: Request, res: Response) => {
     try {
       const result = validationResult(req);
       const errors = result.array().map(error => error.msg);
@@ -43,8 +39,7 @@ router.post(
       const hashedPassword = await hash(req.body.password, salt);
 
       const newUser = await userController.CreateUser({
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
+        fullName: `${req.body.firstName} ${req.body.lastName}`,
         email: req.body.email,
         password: hashedPassword
       });

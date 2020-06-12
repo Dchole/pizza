@@ -8,9 +8,9 @@ import cookieParser from "cookie-parser";
 import session from "express-session";
 import hbs from "express-handlebars";
 import Handlebars from "handlebars";
-import { allowInsecurePrototypeAccess } from "@handlebars/allow-prototype-access";
 import flash from "connect-flash";
 import passport from "passport";
+import { allowInsecurePrototypeAccess } from "@handlebars/allow-prototype-access";
 
 import indexRoute from "./routes/index";
 import homeRoute from "./routes/home";

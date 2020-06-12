@@ -2,10 +2,11 @@
 <div id="cart">
     <div class="container">
         <h1>My Cart</h1>
+        <h2 class="right-align">Total: <span>GH₵ {{totalPrice}}</span></h2>
         {{#if itemsInCart}}
         <ul>
             {{#each itemsInCart}}
-            <li data-id={{this._id}} class="card horizontal small">
+            <li data-id={{this._id}} data-price={{this.price}} class="card horizontal small">
                 <div class="card-image">
                     <img src={{this.image}} alt="">
                 </div>
@@ -27,7 +28,7 @@
                         </div>
                     </div>
                     <div class="card-action">
-                        <a class="waves-effect waves-light btn right">
+                        <a href="/checkout" class="waves-effect waves-light btn right">
                             <i class="material-icons left">shopping_basket</i>
                             Check Out
                         </a>

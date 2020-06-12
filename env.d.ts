@@ -7,5 +7,8 @@ declare namespace NodeJS {
     EMAIL: string;
     PASSWORD: string;
     TOKEN_SECRET: string;
+    STRIPE_SECRET_KEY: string;
+    STRIPE_PUBLIC_KEY: string;
+    STRIPE_WEBHOOK_KEY: string;
   }
 }

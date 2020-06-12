@@ -3,6 +3,15 @@
     font-family: $header-font;
   }
 
+  h2 {
+    font-size: 2rem;
+    font-family: $sub-header-font;
+
+    span {
+      font-family: $caption-font;
+    }
+  }
+
   .card {
     height: fit-content;
   }

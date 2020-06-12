@@ -5,7 +5,6 @@ export interface IPizza extends Document {
   price: number;
   image: string;
   description: string;
-  ingredients: string[];
   soldTo: string[];
 }
 
@@ -21,7 +20,6 @@ const PizzaSchema: Schema = new Schema(
     },
     image: String,
     description: String,
-    ingredients: [String],
     soldTo: [
       {
         type: Schema.Types.ObjectId,

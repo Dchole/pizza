@@ -4,7 +4,7 @@ M.AutoInit();
 const SEARCH_INPUT = document.querySelector('input[name="search"]');
 const STORE = document.querySelector("#store ul");
 
-/* SEACRCH */
+/* SEARCH */
 SEARCH_INPUT?.addEventListener("keyup", event => {
   const term = event.target.value.toLowerCase();
   const pizzas = STORE.getElementsByTagName("li");
@@ -71,6 +71,7 @@ cards?.forEach(card => {
 
 /* INCREASE AND DECREASE QUANTITY */
 const cartItems = document.querySelectorAll("#cart li");
+const totalPrice = document.querySelector("#cart h2 span");
 
 cartItems.forEach(item => {
   const QUANTITY = item.querySelector(".quantity");
@@ -80,6 +81,9 @@ cartItems.forEach(item => {
 
   INCREASE_QUANTITY.addEventListener("click", async () => {
     QUANTITY.textContent++;
+    totalPrice.textContent = `GH₵ ${
+      Number(totalPrice.textContent.split(" ")[1]) + Number(item.dataset.price)
+    }`;
 
     try {
       await fetch("/cart/add", {
@@ -101,6 +105,10 @@ cartItems.forEach(item => {
   DECREASE_QUANTITY.addEventListener("click", async () => {
     if (+QUANTITY.textContent) {
       QUANTITY.textContent--;
+      totalPrice.textContent = `GH₵ ${
+        Number(totalPrice.textContent.split(" ")[1]) -
+        Number(item.dataset.price)
+      }`;
 
       try {
         await fetch("/cart/remove", {
@@ -141,4 +149,34 @@ cartItems.forEach(item => {
       console.log(err);
     }
   });
+});
+
+/* UPDATE USER ACCOUNT */
+const ACCOUNT_DETAILS = document.querySelectorAll("#account>ul>li");
+const SUBMIT_BTN = document.querySelector("#submit-update");
+
+SUBMIT_BTN?.addEventListener("click", async () => {
+  const body = {};
+  [...ACCOUNT_DETAILS].slice(0, 3).forEach(detail => {
+    const { name, value } = detail.querySelector("input");
+
+    body[name] = value;
+  });
+
+  try {
+    await fetch("/account", {
+      method: "PUT",
+      body: JSON.stringify(body),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+
+    await M.toast({
+      html: '<i class="material-icons">check_circle</i>&nbsp;Updated Account',
+      classes: "green"
+    });
+  } catch (err) {
+    console.log(err);
+  }
 });

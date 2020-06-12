@@ -6,21 +6,18 @@ import { createTransport } from "nodemailer";
 import { sign } from "jsonwebtoken";
 
 interface ICreateUserInput {
-  firstName: IUser["firstName"];
-  lastName: IUser["lastName"];
+  fullName: IUser["fullName"];
   email: IUser["email"];
   password: IUser["password"];
 }
 
 async function CreateUser({
-  firstName,
-  lastName,
+  fullName,
   email,
   password
 }: ICreateUserInput): Promise<IUser> {
   return User.create({
-    firstName,
-    lastName,
+    fullName,
     email,
     password
   })

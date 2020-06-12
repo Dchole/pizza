@@ -30,49 +30,48 @@
         <ul class="container collection">
             <li class="collection-item">
                 <ul class="row">
-                    <li class="col s4">Full Name</li>
-                    <li class="col s4 center-align">{{user.firstName}}&nbsp;{{user.lastName}}</li>
-                    <li class="col s4 right-align">
-                        <a href="#">
-                            <i class="material-icons">edit</i>&nbsp;Edit
-                        </a>
+                    <li class="col s6" id="fullName">Full Name</li>
+                    <li class="col s4 center-align">
+                        <input type="text" name="fullName" aria-labelledby="#fullName" value="{{user.fullName}}"
+                            required>
                     </li>
                 </ul>
             </li>
             <li class="collection-item">
                 <ul class="row">
-                    <li class="col s4">Email</li>
-                    <li class="col s4 center-align">{{user.email}}</li>
-                    <li class="col s4 right-align">
-                        <a href="#">
-                            <i class="material-icons">edit</i>&nbsp;Edit
-                        </a>
+                    <li class="col s6" id="email">Email</li>
+                    <li class="col s4 center-align">
+                        <input type="email" name="email" aria-labelledby="#email" value={{user.email}} required>
                     </li>
                 </ul>
             </li>
             <li class="collection-item">
                 <ul class="row">
-                    <li class="col s4">Telephone Number</li>
-                    <li class="col s4 center-align">{{user.telNo}}</li>
-                    <li class="col s4 right-align">
-                        <a href="#">
-                            <i class="material-icons">edit</i>&nbsp;Edit
-                        </a>
+                    <li class="col s6" id="tel">Telephone Number</li>
+                    <li class="col s4 center-align">
+                        <input type="text" name="telNo" aria-labelledby="#tel" placeholder="Add a telephone number"
+                            required value={{user.telNo}}>
                     </li>
                 </ul>
             </li>
             <li class="collection-item">
                 <ul class="row">
                     <li class="col s4">Password</li>
-                    <li class="col s4 center-align"><i class="material-icons">lock</i></li>
+                    <li class="col s4 center-align">
+                        <i class="material-icons">lock</i>
+                    </li>
                     <li class="col s4 right-align">
-                        <a href="#">
-                            <i class="material-icons">edit</i>&nbsp;Edit
+                        <a href="#" class="waves-effect btn-floating white">
+                            <i class="material-icons blue-text">edit</i>
                         </a>
                     </li>
                 </ul>
             </li>
         </ul>
+        <br>
+        <div class="container">
+            <button id="submit-update" class="right btn green waves-effect">Done</button>
+        </div>
     </section>
     <section id="history" class="container">
         <h2>Order History</h2>

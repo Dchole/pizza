@@ -8467,6 +8467,12 @@ header .sidenav li > a {
   align-items: center;
   margin-bottom: 0;
 }
+#account-page #account ul ul li:first-child {
+  margin-left: 0;
+}
+#account-page #account ul ul li input {
+  margin: 0;
+}
 #account-page #payment li {
   font-family: "Roboto Slab", serif;
   font-size: 1.6rem;
@@ -8478,6 +8484,13 @@ header .sidenav li > a {
 
 #cart h1 {
   font-family: "Lobster", sans-serif;
+}
+#cart h2 {
+  font-size: 2rem;
+  font-family: "Roboto Slab", serif;
+}
+#cart h2 span {
+  font-family: "Muli", sans-serif;
 }
 #cart .card {
   height: fit-content;

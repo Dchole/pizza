@@ -1,10 +1,10 @@
 import { Schema, model, Document } from "mongoose";
 
 export interface IUser extends Document {
-  firstName: string;
-  lastName: string;
+  fullName: string;
   email: string;
   password: string;
+  telNo: number;
   confirmed: boolean;
   cart: string[] | never[];
   transactions: string[] | never[];
@@ -13,11 +13,7 @@ export interface IUser extends Document {
 
 const UserSchema: Schema = new Schema(
   {
-    firstName: {
-      type: String,
-      required: true
-    },
-    lastName: {
+    fullName: {
       type: String,
       required: true
     },
@@ -31,6 +27,10 @@ const UserSchema: Schema = new Schema(
       type: String,
       min: 8,
       required: true
+    },
+    telNo: {
+      type: Number,
+      min: 10
     },
     confirmed: {
       type: Boolean,
