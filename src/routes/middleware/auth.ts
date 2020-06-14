@@ -10,7 +10,7 @@ export function checkAuthenticated(
     if (req.isAuthenticated()) {
       return next();
     }
-
+    req.session.path = req.originalUrl;
     req.flash("error_msg", "Please login to view this page");
     res.redirect("/login");
   } catch (err) {
