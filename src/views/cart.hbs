@@ -18,31 +18,51 @@
                         </div>
                         <div class="config">
                             <h4>Quantity</h4>
-                            <button class="btn-floating waves-effect waves-red amber accent-4">
+                            <button class="btn-floating waves-effect waves-red amber accent-4" aria-label="decrement">
                                 <i class="material-icons">chevron_left</i>
                             </button>
                             <span class="quantity">{{this.quantity}}</span>
-                            <button class="btn-floating waves-effect waves-green amber accent-4">
+                            <button class="btn-floating waves-effect waves-green amber accent-4" aria-label="increment">
                                 <i class="material-icons">chevron_right</i>
                             </button>
                         </div>
                     </div>
                     <div class="card-action">
-                        <a href="/checkout" class="waves-effect waves-light btn right">
-                            <i class="material-icons left">shopping_basket</i>
-                            Check Out
-                        </a>
-                        <a class="waves-effect waves-light btn right">
+                        <button class="waves-effect waves-light btn right">
                             <i class="material-icons left">remove</i>
-                            Remove
-                        </a>
+                            <span>Remove</span>
+                        </button>
                     </div>
                 </div>
             </li>
             {{/each}}
+            <hr>
         </ul>
+        <a href="/checkout" class="waves-effect waves-light btn right" aria-label="Checkout">
+            <i class="material-icons left">shopping_basket</i>
+            Checkout
+        </a>
         {{else}}
         <h2 class="center-align">No item in cart</h2>
         {{/if}}
     </div>
 </div>
+
+<script>
+    const cardItem = document.querySelector(".card")
+
+    if (window.innerWidth <= 670) {
+        cardItem.classList = ['card small']
+    } else {
+        cardItem.classList = ['card horizontal small']
+    }
+
+    document.addEventListener('resize', _ => {
+        if (window.innerWidth <= 670) {
+            cardItem.classList = ['card small']
+        } else {
+            cardItem.classList = ['card horizontal small']
+        }
+    })
+
+</script>

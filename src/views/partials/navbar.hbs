@@ -7,35 +7,51 @@
             </a>
             <a href="/" id="logo" aria-label="home">Logo</a>
             <ul class="hide-on-med-and-down">
-                <li><a href="/about">About Us</a></li>
-                <li><a href="/store">Store</a></li>
-                <li><a href="/contact">Contact Us</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact Us</a></li>
             </ul>
             <div>
                 <a href="/login" class="btn blue">Login</a>
             </div>
         </div>
     </nav>
-    <ul class="sidenav" id="mobile-demo">
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/home#store">Store</a></li>
-        <li><a href="/contact">Contact Us</a></li>
+    <ul class="sidenav transparent z-depth-0" id="mobile-demo">
+        <li><a class="white-text" href="/about">About Us</a></li>
+        <li><a class="white-text" href="#gallery">Gallery</a></li>
+        <li><a class="white-text" href="/contact">Contact Us</a></li>
     </ul>
 </header>
+<script>
+    const sideNavTrigger = document.querySelector(".sidenav-trigger")
+    const sideNav = document.querySelector("#mobile-demo")
+    const navBar = document.querySelector('nav')
+    const navText = navBar.querySelectorAll('li a')
+
+    sideNavTrigger.addEventListener('load', _ => {
+        navBar.style.display = 'none';
+    })
+
+    document.addEventListener('scroll', event => {
+        if (window.scrollY >= window.innerHeight - 64) {
+            navBar.classList = ["white black-text z-depth-1"]
+            sideNavTrigger.classList = ['sidenav-trigger black-text']
+            navText.forEach(li => li.classList = ['black-text'])
+        } else {
+            navBar.classList = []
+            sideNavTrigger.classList = ['sidenav-trigger']
+            navText.forEach(li => li.classList = [])
+        }
+    })
+
+
+</script>
 {{else}}
 <div class="navbar-fixed">
     <header>
         <nav>
             <div class="amber accent-4 z-depth-1 nav-wrapper">
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger" aria-label="menu">
-                    <i class="material-icons">menu</i>
-                </a>
                 <a href="/home" id="logo" aria-label="home">Logo</a>
-                <ul class="hide-on-med-and-down">
-                    <li><a href="/about">About Us</a></li>
-                    <li><a href="/home#store">Store</a></li>
-                    <li><a href="/contact">Contact Us</a></li>
-                </ul>
                 <div>
                     <a href="#"
                         class="dropdown-trigger waves-effect waves-dark btn-floating btn-large grey lighten-2 z-depth-0"
@@ -45,12 +61,6 @@
                 </div>
             </div>
         </nav>
-        <ul class="sidenav" id="mobile-demo">
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/store">Store</a></li>
-            <li><a href="/contact">Contact Us</a></li>
-        </ul>
-
         <ul id="menu" class="dropdown-content">
             <li class="disabled"><a href="/account"><i class="left material-icons">person</i>Account</a></li>
             <li><a href="/cart"><i class="left material-icons">shopping_cart</i>Shopping Cart</a></li>

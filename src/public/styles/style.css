@@ -8379,6 +8379,22 @@ header .sidenav li > a {
 #login-form {
   width: 30%;
 }
+@media only screen and (max-width : 992px) {
+  #login-form {
+    width: 450px;
+  }
+  #login-form div {
+    width: 100%;
+  }
+}
+@media only screen and (max-width : 600px) {
+  #login-form {
+    width: 95%;
+  }
+  #login-form div {
+    width: 100%;
+  }
+}
 
 #cover {
   width: fit-content;
@@ -8533,8 +8549,47 @@ header .sidenav li > a {
 #cart .card-action {
   padding: 5px;
 }
-#cart .card-action a {
+#cart .card-action button {
   margin-left: 6px;
+}
+
+@media only screen and (max-width : 600px) {
+  #cart .card {
+    height: 420px;
+  }
+  #cart .card .card-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  #cart .card .card-content h4 {
+    font-size: 1.5rem !important;
+  }
+  #cart .card .card-content p {
+    display: none;
+  }
+  #cart .card .card-action button {
+    width: 100%;
+  }
+
+  a {
+    margin-bottom: 30px;
+  }
+}
+#form-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 40vh;
+  width: fit-content;
+}
+#form-container #submit {
+  padding-bottom: 40px;
+}
+#form-container #submit span {
+  font-size: 1.6rem;
+  font-family: "Roboto Slab", serif;
+  padding-right: 10px;
 }
 
 #confirm h1 {

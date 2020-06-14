@@ -20,12 +20,14 @@ import logoutRoute from "./routes/logout";
 import confirmRoute from "./routes/confirm";
 import accountRoute from "./routes/account";
 import cartRoute from "./routes/cart";
+import checkoutRoute from "./routes/checkout";
 import adminRoute from "./routes/admin";
 import userController from "./controllers/user-controller";
+import { stripeConfig } from "./controllers/checkout-controller";
 
 userController.passportLocal(passport);
-
 config();
+stripeConfig();
 const app: Application = express();
 
 app.set("views", path.join(__dirname, "views"));
@@ -90,6 +92,7 @@ app.use("/logout", logoutRoute);
 app.use("/confirm", confirmRoute);
 app.use("/account", accountRoute);
 app.use("/cart", cartRoute);
+app.use("/checkout", checkoutRoute);
 app.use("/admin", adminRoute);
 
 app.listen(process.env.PORT, () =>

@@ -52,4 +52,20 @@
 #login-form {
   @extend #register-form;
   width: 30%;
+
+  @media #{$medium-and-down} {
+    width: 450px;
+
+    div {
+      width: 100%;
+    }
+  }
+
+  @media #{$small-and-down} {
+    width: 95%;
+
+    div {
+      width: 100%;
+    }
+  }
 }

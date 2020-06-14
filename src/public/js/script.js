@@ -77,7 +77,7 @@ cartItems.forEach(item => {
   const QUANTITY = item.querySelector(".quantity");
   const DECREASE_QUANTITY = item.querySelector(".config button");
   const INCREASE_QUANTITY = item.querySelector(".config button:last-child");
-  const removeBtn = item.querySelector("#cart .card-action a:last-child");
+  const removeBtn = item.querySelector("#cart .card-action button");
 
   INCREASE_QUANTITY.addEventListener("click", async () => {
     QUANTITY.textContent++;
@@ -139,6 +139,11 @@ cartItems.forEach(item => {
           "Content-Type": "text/plain"
         }
       });
+
+      totalPrice.textContent = `GH₵ ${
+        Number(totalPrice.textContent.split(" ")[1]) -
+        Number(item.dataset.price) * Number(QUANTITY.textContent)
+      }`;
 
       QUANTITY.textContent = 0;
 
