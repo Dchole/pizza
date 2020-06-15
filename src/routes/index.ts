@@ -2,15 +2,18 @@ import { Router, Request, Response } from "express";
 import { check, validationResult } from "express-validator";
 import { IUser } from "../model/user-model";
 import newsletterController from "../controllers/newsletter-controller";
+import Pizza from "../model/pizza-model";
 
 const router = Router();
 
-router.get("/", (req: Request, res) => {
+router.get("/", async (req: Request, res) => {
   if (req.isAuthenticated()) {
-    return res.render("home", { title: "Home Page" });
+    return res.redirect("/home");
   }
 
-  res.render("index", { title: "Welcome to our store" });
+  const items = (await Pizza.find()).slice(0, 3);
+
+  res.render("index", { title: "Welcome to our store", items });
 });
 
 interface ICustomReq extends Request {

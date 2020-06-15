@@ -24,7 +24,7 @@ cards?.forEach(card => {
   const actionBtn = card.querySelector("#add-to-cart");
 
   if (card.dataset.item.includes(card.dataset.id)) {
-    actionBtn.classList = ["waves-effect waves-light btn"];
+    actionBtn.classList = ["waves-effect waves-light green btn"];
     actionBtn.innerHTML = `<i class="material-icons left">remove_shopping_cart</i>Remove pizza`;
   }
 
@@ -46,7 +46,7 @@ cards?.forEach(card => {
         console.log(err);
       }
 
-      actionBtn.classList = ["waves-effect waves-light btn amber accent-4"];
+      actionBtn.classList = ["waves-effect waves-light blue btn"];
       actionBtn.innerHTML = `<i class="material-icons left">add_shopping_cart</i>Add to cart`;
     } else {
       try {

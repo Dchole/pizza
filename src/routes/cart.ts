@@ -8,10 +8,10 @@ router.get("/", checkAuthenticated, async (req: Request, res: Response) => {
   try {
     const user = await User.findById(req.user?._id).populate("cart");
 
-    //@ts-ignore
-    const itemsInCart = user?.cart.map(item => {
-      const quantity = user.cart.filter(i => i === item).length;
+    const itemsInCart = [...user?.cart].map(item => {
+      const quantity = user?.cart.filter(i => i === item).length;
 
+      // @ts-ignore
       item.quantity = quantity;
       return item;
     });

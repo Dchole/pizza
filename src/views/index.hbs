@@ -11,65 +11,26 @@
             preference.</p>
         <div class="row">
             <ul class="col s12">
+                {{#each items}}
                 <li class="col s4">
                     <div class="card">
                         <div class="card-image">
-                            <img src="/images/gallery-thumbnail-1.jpg" alt="" />
-                            <span class="card-title right-align">$30</span>
-                            <span class="card-title left-align">Name</span>
+                            <img src="{{this.image}}" alt="{{this.name}}" />
+                            <span class="card-title right-align">{{this.price}}</span>
+                            <span class="card-title left-align">{{this.name}}</span>
                         </div>
                         <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                                I am convenient because I require little markup to use effectively.</p>
+                            <p>{{this.description}}</p>
                         </div>
                         <div class="card-action">
-                            <a class="waves-effect waves-light btn blue">
+                            <a href="/home" class="waves-effect waves-light btn blue" aria-label="Buy">
                                 <i class="material-icons left">shopping_cart</i>
                                 Buy
                             </a>
                         </div>
                     </div>
                 </li>
-                <li class="col s4">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="/images/gallery-thumbnail-2.jpg" alt="" />
-                            <div id="title">
-                                <span class="card-title right-align">$30</span>
-                                <span class="card-title left-align">Name</span>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                                I am convenient because I require little markup to use effectively.</p>
-                        </div>
-                        <div class="card-action">
-                            <a class="waves-effect waves-light btn blue">
-                                <i class="material-icons left">shopping_cart</i>
-                                Buy
-                            </a>
-                        </div>
-                    </div>
-                </li>
-                <li class="col s4">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="/images/gallery-thumbnail-3.jpg" alt="" />
-                            <span class="card-title right-align">$30</span>
-                            <span class="card-title left-align">Name</span>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                                I am convenient because I require little markup to use effectively.</p>
-                        </div>
-                        <div class="card-action">
-                            <a class="waves-effect waves-light btn blue">
-                                <i class="material-icons left">shopping_cart</i>
-                                Buy
-                            </a>
-                        </div>
-                    </div>
-                </li>
+                {{/each}}
             </ul>
         </div>
     </section>

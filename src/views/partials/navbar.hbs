@@ -1,13 +1,13 @@
 {{#if (equalsto title)}}
 <header>
     <nav>
-        <div class="transparent nav-wrapper">
+        <div class="container transparent nav-wrapper">
             <a href="#" data-target="mobile-demo" class="sidenav-trigger" aria-label="menu">
                 <i class="material-icons">menu</i>
             </a>
-            <a href="/" id="logo" aria-label="home">Logo</a>
+            <a href="/" id="logo" aria-label="Logo">🍕</a>
             <ul class="hide-on-med-and-down">
-                <li><a href="#about">About Us</a></li>
+                <li><a href="#personal-info">About Us</a></li>
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact Us</a></li>
             </ul>
@@ -17,9 +17,9 @@
         </div>
     </nav>
     <ul class="sidenav transparent z-depth-0" id="mobile-demo">
-        <li><a class="white-text" href="/about">About Us</a></li>
+        <li><a class="white-text" href="#personal-info">About Us</a></li>
         <li><a class="white-text" href="#gallery">Gallery</a></li>
-        <li><a class="white-text" href="/contact">Contact Us</a></li>
+        <li><a class="white-text" href="#contact">Contact Us</a></li>
     </ul>
 </header>
 <script>
@@ -28,8 +28,12 @@
     const navBar = document.querySelector('nav')
     const navText = navBar.querySelectorAll('li a')
 
-    sideNavTrigger.addEventListener('load', _ => {
-        navBar.style.display = 'none';
+    document.addEventListener('click', _ => {
+        if (document.body.style.cssText) {
+            navBar.style.display = 'none'
+        } else {
+            navBar.style.display = 'block'
+        }
     })
 
     document.addEventListener('scroll', event => {
@@ -43,15 +47,13 @@
             navText.forEach(li => li.classList = [])
         }
     })
-
-
 </script>
 {{else}}
 <div class="navbar-fixed">
     <header>
-        <nav>
-            <div class="amber accent-4 z-depth-1 nav-wrapper">
-                <a href="/home" id="logo" aria-label="home">Logo</a>
+        <nav class="blue z-depth-1">
+            <div class="container nav-wrapper">
+                <a href="/home" id="logo" aria-label="home">🍕</a>
                 <div>
                     <a href="#"
                         class="dropdown-trigger waves-effect waves-dark btn-floating btn-large grey lighten-2 z-depth-0"

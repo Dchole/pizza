@@ -8105,7 +8105,17 @@ header nav {
 }
 header nav .nav-wrapper {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: center;
+}
+header nav .nav-wrapper #logo {
+  font-size: 2.5rem;
+}
+header nav .nav-wrapper a {
+  margin: auto 0;
+}
+header nav .nav-wrapper div a {
+  margin: auto;
 }
 @media only screen and (max-width : 992px) {
   header nav .nav-wrapper {
@@ -8320,6 +8330,7 @@ header .sidenav li > a {
 
   #info {
     height: initial;
+    position: relative;
   }
   #info p {
     width: 85%;
@@ -8332,6 +8343,13 @@ header .sidenav li > a {
   }
   #info form .input-field .btn-floating {
     padding-right: 35px;
+  }
+  #info #social-contact {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
   }
 }
 #register-form, #login-form {
@@ -8409,11 +8427,16 @@ header .sidenav li > a {
   margin-bottom: 100px;
   min-height: 90vh;
 }
+#store h1 {
+  font-family: "Lobster", sans-serif;
+  text-decoration: underline double;
+  margin: 0 0 10px;
+}
 #store .input-field {
   margin: 20px auto 10px;
 }
 #store ul {
-  margin: auto;
+  margin: 30px auto;
 }
 #store ul li {
   padding: 8px;
@@ -8489,15 +8512,15 @@ header .sidenav li > a {
 #account-page #account ul ul li input {
   margin: 0;
 }
-#account-page #payment li {
-  font-family: "Roboto Slab", serif;
-  font-size: 1.6rem;
+#account-page #payment #cash, #account-page #payment li a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
 }
-
+#account-page #payment li {
+  font-family: "Roboto Slab", serif;
+  font-size: 1.6rem;
+}
 #cart h1 {
   font-family: "Lobster", sans-serif;
 }

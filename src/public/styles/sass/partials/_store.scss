@@ -2,12 +2,18 @@
   margin-bottom: 100px;
   min-height: 90vh;
 
+  h1 {
+    font-family: $header-font;
+    text-decoration: underline double;
+    margin: 0 0 10px;
+  }
+
   .input-field {
     margin: 20px auto 10px;
   }
 
   ul {
-    margin: auto;
+    margin: 30px auto;
 
     li {
       padding: 8px;

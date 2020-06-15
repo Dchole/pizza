@@ -44,13 +44,19 @@
   }
 
   #payment {
-    li {
-      font-family: $sub-header-font;
-      font-size: 1.6rem;
+    #cash {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 100px;
+    }
+
+    li {
+      font-family: $sub-header-font;
+      font-size: 1.6rem;
+
+      a {
+        @extend #cash;
+      }
     }
   }
 }

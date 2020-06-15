@@ -3,7 +3,7 @@
     <h1 class="center-align">My Account</h1>
 
     <div class="tab-menu">
-        <ul class="z-depth-1 tabs tabs-transparent amber accent-4">
+        <ul class="z-depth-1 tabs tabs-transparent blue">
             <li class="tab">
                 <a class="white-text" href="#account">
                     <i class="left material-icons">person</i>
@@ -109,15 +109,20 @@
     </section>
     <section id="payment" class="container">
         <h2>Payment Method</h2>
-        <ul class="container collection">
-            <li class="collection-item">
-                Stripe
-                <img src="/images/stripe.jpg" alt="stripe" width="100">
+        <ul class="container">
+            <li href="#" class="card">
+                <a href="/checkout" class="black-text">
+                    Stripe
+                    <img src="/images/stripe.jpg" alt="stripe" width="100">
+                </a>
             </li>
-            <li class="collection-item">Mobile Money
-                <img src="/images/mobile_money.jpg" alt="mobile-money" width="100">
+            <li class="card">
+                <a href="/momo" class="black-text">
+                    MoMo
+                    <img src="/images/mobile_money.jpg" alt="mobile-money" width="100">
+                </a>
             </li>
-            <li class="collection-item">
+            <li id="cash" class="card black-text">
                 Cash
                 <img src="/images/cash.png" alt="cash" width="100">
             </li>

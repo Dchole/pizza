@@ -9,6 +9,8 @@
             <label for="search">Search</label>
             <input type="text" name="search" id="search">
         </form>
+
+        <h1 class="center-align">Store</h1>
         <ul class="col s12">
             {{#each pizza}}
             <li data-id={{this._id}} data-item={{...cart}} class="col s4">
@@ -22,7 +24,7 @@
                         <p>{{this.description}}</p>
                     </div>
                     <div class="card-action">
-                        <button id="add-to-cart" class="waves-effect waves-light btn amber accent-4">
+                        <button id="add-to-cart" class="waves-effect waves-light btn blue">
                             <i class="material-icons left">add_shopping_cart</i>
                             Add to cart
                         </button>
