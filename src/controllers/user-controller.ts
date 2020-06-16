@@ -1,9 +1,10 @@
 import User, { IUser } from "../model/user-model";
-import { Strategy as LocalStragedy } from "passport-local";
+import { Strategy as LocalStrategy } from "passport-local";
 import { compare } from "bcryptjs";
 import { PassportStatic } from "passport";
 import { createTransport } from "nodemailer";
 import { sign } from "jsonwebtoken";
+import { Response } from "express";
 
 interface ICreateUserInput {
   fullName: IUser["fullName"];
@@ -29,7 +30,7 @@ async function CreateUser({
 
 function passportLocal(passport: PassportStatic) {
   passport.use(
-    new LocalStragedy(
+    new LocalStrategy(
       { usernameField: "email" },
       async (email, password, done) => {
         const user = await User.findOne({ email });
@@ -91,4 +92,22 @@ function sendMail(hostname: string, id: string, email: string) {
   );
 }
 
-export default { CreateUser, passportLocal, sendMail };
+async function sendOrderMsg(username: string, product: string) {
+  const transporter = createTransport({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
+    auth: {
+      user: process.env.EMAIL,
+      pass: process.env.PASSWORD
+    }
+  });
+  await transporter.sendMail({
+    from: `"Moshood's pizza 🍕" ${process.env.EMAIL}`,
+    to: process.env.EMAIL,
+    subject: `Order from ${username}.`,
+    html: `<p>An order has been made by ${username} for ${product} on ${new Date().toDateString()} at ${new Date().toLocaleTimeString()}</p>`
+  });
+}
+
+export default { CreateUser, passportLocal, sendMail, sendOrderMsg };

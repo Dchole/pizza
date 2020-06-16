@@ -1,18 +1,41 @@
+#stripe-header {
+  font-family: $header-font;
+  font-size: 3.3rem;
+  margin-top: 100px;
+}
+
 #form-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 40vh;
-  width: fit-content;
+  height: 150px;
+  padding: 20px;
+  width: 500px;
 
-  #submit {
-    padding-bottom: 40px;
+  #payment-form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-    span {
-      font-size: 1.6rem;
-      font-family: $sub-header-font;
-      padding-right: 10px;
+    #card-element {
+      padding: 10px;
+      background: darken($color: #2196f3, $amount: 10%);
     }
+
+    #submit {
+      padding-bottom: 40px;
+
+      span {
+        font-size: 1.6rem;
+        font-family: $sub-header-font;
+        padding-right: 10px;
+      }
+    }
+  }
+
+  @media #{$small-and-down} {
+    width: 98%;
   }
 }

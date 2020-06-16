@@ -22,6 +22,8 @@ router.get("/", checkAuthenticated, async (req: Request, res: Response) => {
       0
     );
 
+    req.session.amount = totalPrice;
+
     res.render("cart", {
       title: "Shopping Cart",
       itemsInCart: [...new Set(itemsInCart)],

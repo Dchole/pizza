@@ -2,7 +2,7 @@ import { Router, Request, Response } from "express";
 import { genSalt, hash } from "bcryptjs";
 import { check, validationResult } from "express-validator";
 import { checkNotAuthenticated } from "./middleware/auth";
-import User, { IUser } from "../model/user-model";
+import User from "../model/user-model";
 import userController from "../controllers/user-controller";
 
 const router = Router();

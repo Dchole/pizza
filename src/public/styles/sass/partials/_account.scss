@@ -22,6 +22,15 @@
     .tab {
       line-height: initial;
       height: initial;
+
+      a {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        i {
+          margin: 0;
+        }
+      }
     }
   }
 
@@ -48,14 +57,18 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      cursor: pointer;
     }
 
     li {
       font-family: $sub-header-font;
       font-size: 1.6rem;
+      padding-left: 15px;
+      border: 1px solid black;
 
       a {
         @extend #cash;
+        margin: 0;
       }
     }
   }

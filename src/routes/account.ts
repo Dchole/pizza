@@ -16,9 +16,9 @@ router.put("/", checkAuthenticated, async (req: Request, res: Response) => {
       telNo: req.body.telNo
     });
 
-    res.render("account", { title: "Account", user: req.user });
+    res.sendStatus(302);
   } catch (err) {
-    console.log(err);
+    res.sendStatus(500);
   }
 });
 

@@ -7,19 +7,19 @@
             <li class="tab">
                 <a class="white-text" href="#account">
                     <i class="left material-icons">person</i>
-                    Account
+                    <span class="hide-on-small-only">Account</span>
                 </a>
             </li>
             <li class="tab">
                 <a class="white-text" href="#history">
                     <i class="left material-icons">history</i>
-                    Order History
+                    <span class="hide-on-small-only">Order History</span>
                 </a>
             </li>
             <li class="tab">
                 <a class="white-text" href="#payment">
                     <i class="left material-icons">payment</i>
-                    Payment Options
+                    <span class="hide-on-small-only">Payment Options</span>
                 </a>
             </li>
         </ul>
@@ -110,22 +110,56 @@
     <section id="payment" class="container">
         <h2>Payment Method</h2>
         <ul class="container">
-            <li href="#" class="card">
-                <a href="/checkout" class="black-text">
-                    Stripe
-                    <img src="/images/stripe.jpg" alt="stripe" width="100">
-                </a>
+            <li id="stripe" class="card z-depth-0">
+                Stripe
+                <img src="/images/stripe.jpg" alt="stripe" width="100">
             </li>
-            <li class="card">
-                <a href="/momo" class="black-text">
-                    MoMo
-                    <img src="/images/mobile_money.jpg" alt="mobile-money" width="100">
-                </a>
+            <li id="momo" class="card z-depth-0">
+                MoMo
+                <img src="/images/mobile_money.jpg" alt="mobile-money" width="100">
             </li>
-            <li id="cash" class="card black-text">
+            <li id="cash" class="card z-depth-0 black-text">
                 Cash
                 <img src="/images/cash.png" alt="cash" width="100">
             </li>
         </ul>
     </section>
 </div>
+<script>
+    const paymentMethod = document.querySelectorAll('#payment li')
+
+    paymentMethod.forEach(method =>
+        method.addEventListener('click', async _ => {
+            if (method.id === "cash") {
+                await M.toast({
+                    html: '<i class="material-icons">info</i>&nbsp; Processing request, Please wait',
+                    classes: "blue"
+                });
+
+                try {
+                    const res = await fetch('/payment/cash', { method: 'GET' });
+                    const data = await res.text()
+                    if (data === "OK")
+                        await M.toast({
+                            html: '<i class="material-icons">check_circle</i>&nbsp;Order Sent',
+                            classes: "green"
+                        });
+                    else await M.toast({
+                        html: '<i class="material-icons">clear</i>&nbsp; Something went wrong! Please try again',
+                        classes: "red"
+                    });
+                } catch (err) {
+                    await M.toast({
+                        html: '<i class="material-icons">clear</i>&nbsp; Something went wrong! Please try again',
+                        classes: "red"
+                    });
+                }
+            } else {
+                await M.toast({
+                    html: '<i class="material-icons">warn</i>&nbsp; Method not available yet! try another method',
+                    classes: "amber accent-4"
+                });
+            }
+        })
+    )
+</script>
