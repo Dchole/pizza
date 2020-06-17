@@ -185,3 +185,89 @@ SUBMIT_BTN?.addEventListener("click", async () => {
     console.log(err);
   }
 });
+
+/* PAYMENT */
+const paymentMethod = document.querySelectorAll("#payment li");
+const orderHistory = document.querySelector("#history");
+let orders = orderHistory.dataset.orders;
+
+const orderDate = orderHistory?.querySelectorAll("tr td:first-child");
+if (orderDate) {
+  orderDate.forEach(date => {
+    if (new Date(date.textContent).toDateString() === new Date().toDateString())
+      date.textContent = new Date(date.textContent).toLocaleTimeString();
+    else date.textContent = new Date(date.textContent).toDateString();
+  });
+}
+
+paymentMethod?.forEach(method =>
+  method.addEventListener("click", async _ => {
+    let data;
+
+    if (method.id === "cash") {
+      setTimeout(() => {
+        if (!data)
+          M.toast({
+            html:
+              '<i class="material-icons">info</i>&nbsp; Processing request, Please wait',
+            classes: "blue"
+          });
+      }, 1000);
+
+      try {
+        const res = await fetch("/payment/cash", { method: "GET" });
+
+        data = res.status === 200 ? await res.json() : await res.text();
+        console.log(data);
+
+        if (res.status === 200) {
+          const table = orderHistory.querySelector("tbody");
+          data.orderDetails.forEach(order => {
+            const tableRow = document.createElement("tr");
+            table.appendChild(tableRow);
+            tableRow.innerHTML = `<td>${
+              new Date(date.textContent).toDateString() ===
+              new Date().toDateString()
+                ? new Date(date.textContent).toLocaleTimeString()
+                : new Date(date.textContent).toDateString()
+            }</td>
+            <td>${order.item}</td>
+            <td>₵${Number(order.price).toFixed(2)}</td>`;
+          });
+          orders = [...orders, data.orders];
+
+          await M.toast({
+            html: '<i class="material-icons">check</i>&nbsp; Order Sent',
+            classes: "green"
+          });
+        } else {
+          if (data === "Bad Request")
+            await M.toast({
+              html:
+                '<i class="material-icons">clear</i>&nbsp; There are no items in your cart, Please add an item',
+              classes: "red"
+            });
+          else if (data === "Internal Server Error")
+            return await M.toast({
+              html:
+                '<i class="material-icons">clear</i>&nbsp; Something went wrong! Please try again',
+              classes: "red"
+            });
+        }
+      } catch (err) {
+        console.log(err);
+        await M.toast({
+          html:
+            '<i class="material-icons">clear</i>&nbsp; Something went wrong! Please try again',
+          classes: "red"
+        });
+      }
+    } else {
+      await M.toast({
+        html:
+          '<i class="material-icons">warning</i>&nbsp; Method not available yet! try another method',
+        classes: "amber accent-4"
+      });
+    }
+  })
+);

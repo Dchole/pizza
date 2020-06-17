@@ -320,6 +320,13 @@
   dependencies:
     "@types/node" "*"
 
+"@types/uuidv4@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@types/uuidv4/-/uuidv4-5.0.0.tgz#2c94e67b0c06d5adb28fb7ced1a1b5f0866ecd50"
+  integrity sha512-xUrhYSJnkTq9CP79cU3svoKTLPCIbMMnu9Twf/tMpHATYSHCAAeDNeb2a/29YORhk5p4atHhCTMsIBU/tvdh6A==
+  dependencies:
+    uuidv4 "*"
+
 "@typescript-eslint/eslint-plugin@^3.0.2":
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-3.0.2.tgz#4a114a066e2f9659b25682ee59d4866e15a17ec3"
@@ -2770,6 +2777,18 @@ utils-merge@1.0.1, utils-merge@1.x.x:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
+
+uuid@8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.1.0.tgz#6f1536eb43249f473abc6bd58ff983da1ca30d8d"
+  integrity sha512-CI18flHDznR0lq54xBycOVmphdCYnQLKn8abKn7PXUiKUGdEd+/l9LWNJmugXel4hXq7S+RMNl34ecyC9TntWg==
+
+uuidv4@*, uuidv4@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/uuidv4/-/uuidv4-6.1.0.tgz#a8d50c71e46da4dd0edc887a2b766a75e48e5740"
+  integrity sha512-BLAg+H3301PcC0Vp2Nq/q0qujpr2iI6NN2Kt28dtTFmHHZCXurq8+lDl9+XJzvavYBz2HJoUncjKx0+XVcTJIg==
+  dependencies:
+    uuid "8.1.0"
 
 v8-compile-cache@^2.0.3:
   version "2.1.0"

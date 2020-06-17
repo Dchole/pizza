@@ -2,7 +2,7 @@ import { Router, Response, Request } from "express";
 import { checkAuthenticated } from "./middleware/auth";
 import userController from "../controllers/user-controller";
 import Pizza from "../model/pizza-model";
-import User from "../model/user-model";
+import User, { IOrder } from "../model/user-model";
 
 const router = Router();
 
@@ -18,14 +18,32 @@ router.get("/cash", checkAuthenticated, async (req: Request, res: Response) => {
       productNamesString = productNames.join(", ");
     }
 
-    userController
-      .sendOrderMsg(req.user?.fullName!, productNamesString)
-      .then(() => {
-        User.findByIdAndUpdate(req.user?._id, { cart: [] }).then(() =>
-          res.sendStatus(200).redirect("/cart")
-        );
-      })
-      .catch(() => res.sendStatus(500));
+    const orderDetails: IOrder[] = products.map(product => {
+      return {
+        item: product.name,
+        price: Number(product.price.toFixed(2)),
+        date: new Date()
+      };
+    });
+
+    const orders: IOrder[] = [...req.user?.orders, ...orderDetails];
+
+    if (!productNamesString) {
+      res.sendStatus(400);
+    } else {
+      userController
+        .sendOrderMsg(req.user?.fullName!, productNamesString)
+        .then(() => {
+          User.findByIdAndUpdate(req.user?._id, {
+            orders,
+            cart: []
+          }).then(() => res.json({ orderDetails }));
+        })
+        .catch(err => {
+          console.log(err);
+          res.sendStatus(500);
+        });
+    }
   } catch (error) {
     res.sendStatus(500);
   }

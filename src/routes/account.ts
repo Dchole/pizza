@@ -4,8 +4,10 @@ import User from "../model/user-model";
 
 const router = Router();
 
-router.get("/", checkAuthenticated, (req: Request, res: Response) => {
-  res.render("account", { title: "Account", user: req.user });
+router.get("/", checkAuthenticated, async (req: Request, res: Response) => {
+  const user = await User.findById(req.user?._id);
+
+  res.render("account", { title: "Account", user, orders: user?.orders });
 });
 
 router.put("/", checkAuthenticated, async (req: Request, res: Response) => {

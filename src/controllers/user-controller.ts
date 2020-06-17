@@ -106,7 +106,7 @@ async function sendOrderMsg(username: string, product: string) {
     from: `"Moshood's pizza 🍕" ${process.env.EMAIL}`,
     to: process.env.EMAIL,
     subject: `Order from ${username}.`,
-    html: `<p>An order has been made by ${username} for ${product} on ${new Date().toDateString()} at ${new Date().toLocaleTimeString()}</p>`
+    html: `<p>An order has been made by ${username} for <b>${product}</b> on ${new Date().toDateString()} at ${new Date().toLocaleTimeString()}</p>`
   });
 }
 

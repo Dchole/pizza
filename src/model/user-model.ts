@@ -1,5 +1,11 @@
 import { Schema, model, Document } from "mongoose";
 
+export interface IOrder {
+  item: string;
+  price: number;
+  date?: Date;
+}
+
 export interface IUser extends Document {
   fullName: string;
   email: string;
@@ -7,7 +13,7 @@ export interface IUser extends Document {
   telNo: number;
   confirmed: boolean;
   cart: string[] | never[];
-  transactions: string[] | never[];
+  orders: IOrder[] | never[];
   admin: boolean;
 }
 
@@ -42,9 +48,14 @@ const UserSchema: Schema = new Schema(
         ref: "Pizza"
       }
     ],
-    transactions: [
+    orders: [
       {
-        type: Schema.Types.ObjectId
+        item: String,
+        price: Number,
+        date: {
+          type: Date,
+          default: Date.now
+        }
       }
     ],
     admin: {

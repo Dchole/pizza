@@ -73,93 +73,46 @@
             <button id="submit-update" class="right btn green waves-effect">Done</button>
         </div>
     </section>
-    <section id="history" class="container">
+    <section data-orders="{{orders}}" id="history" class="container">
         <h2>Order History</h2>
+        {{#if orders}}
         <table class="container responsive-table highlight striped">
             <thead>
                 <tr>
-                    <th>Transaction ID</th>
                     <th>Date/Time</th>
                     <th>Recipe</th>
                     <th>Price</th>
                 </tr>
             </thead>
-
             <tbody>
+                {{#each orders}}
                 <tr>
-                    <td>2314ded2ef2234fs</td>
-                    <td>23-10-20</td>
-                    <td>Chicken Pizza</td>
-                    <td>$0.87</td>
+                    <td>{{this.date}}</td>
+                    <td>{{this.item}}</td>
+                    <td>₵{{this.price}}.00</td>
                 </tr>
-                <tr>
-                    <td>2314ded2ef2234fs</td>
-                    <td>23-10-20</td>
-                    <td>Chicken Pizza</td>
-                    <td>$0.87</td>
-                </tr>
-                <tr>
-                    <td>2314ded2ef2234fs</td>
-                    <td>23-10-20</td>
-                    <td>Chicken Pizza</td>
-                    <td>$0.87</td>
-                </tr>
+                {{/each}}
             </tbody>
         </table>
+        {{else}}
+        <h3 class="center-align grey-text">Your Order history is empty</h3>
+        {{/if}}
     </section>
     <section id="payment" class="container">
         <h2>Payment Method</h2>
         <ul class="container">
-            <li id="stripe" class="card z-depth-0">
-                Stripe
-                <img src="/images/stripe.jpg" alt="stripe" width="100">
+            <li id="cash" class="waves-effect card z-depth-0">
+                Cash
+                <img src="/images/cash.png" alt="cash" width="100">
             </li>
-            <li id="momo" class="card z-depth-0">
+            <li id="momo" class="waves-effect card z-depth-0">
                 MoMo
                 <img src="/images/mobile_money.jpg" alt="mobile-money" width="100">
             </li>
-            <li id="cash" class="card z-depth-0 black-text">
-                Cash
-                <img src="/images/cash.png" alt="cash" width="100">
+            <li id="stripe" class="waves-effect card z-depth-0">
+                Stripe
+                <img src="/images/stripe.jpg" alt="stripe" width="100">
             </li>
         </ul>
     </section>
 </div>
-<script>
-    const paymentMethod = document.querySelectorAll('#payment li')
-
-    paymentMethod.forEach(method =>
-        method.addEventListener('click', async _ => {
-            if (method.id === "cash") {
-                await M.toast({
-                    html: '<i class="material-icons">info</i>&nbsp; Processing request, Please wait',
-                    classes: "blue"
-                });
-
-                try {
-                    const res = await fetch('/payment/cash', { method: 'GET' });
-                    const data = await res.text()
-                    if (data === "OK")
-                        await M.toast({
-                            html: '<i class="material-icons">check_circle</i>&nbsp;Order Sent',
-                            classes: "green"
-                        });
-                    else await M.toast({
-                        html: '<i class="material-icons">clear</i>&nbsp; Something went wrong! Please try again',
-                        classes: "red"
-                    });
-                } catch (err) {
-                    await M.toast({
-                        html: '<i class="material-icons">clear</i>&nbsp; Something went wrong! Please try again',
-                        classes: "red"
-                    });
-                }
-            } else {
-                await M.toast({
-                    html: '<i class="material-icons">warn</i>&nbsp; Method not available yet! try another method',
-                    classes: "amber accent-4"
-                });
-            }
-        })
-    )
-</script>

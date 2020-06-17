@@ -53,22 +53,18 @@
   }
 
   #payment {
-    #cash {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      cursor: pointer;
-    }
-
     li {
       font-family: $sub-header-font;
       font-size: 1.6rem;
       padding-left: 15px;
       border: 1px solid black;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
 
-      a {
-        @extend #cash;
-        margin: 0;
+      &:hover {
+        background: color("blue", "lighten-3");
       }
     }
   }

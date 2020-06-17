@@ -8520,20 +8520,18 @@ header .sidenav li > a {
 #account-page #account ul ul li input {
   margin: 0;
 }
-#account-page #payment #cash, #account-page #payment li a {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-}
 #account-page #payment li {
   font-family: "Roboto Slab", serif;
   font-size: 1.6rem;
   padding-left: 15px;
   border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
 }
-#account-page #payment li a {
-  margin: 0;
+#account-page #payment li:hover {
+  background: #90CAF9;
 }
 
 #cart h1 {
